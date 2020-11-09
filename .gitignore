@@ -7,3 +7,4 @@ distribute_setup.py
 requirements.txt
 setup.py
 .pytest_cache
+.idea
