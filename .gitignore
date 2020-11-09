@@ -4,7 +4,6 @@
 data.csv
 db.sqlite3
 distribute_setup.py
-requirements.txt
 setup.py
 .pytest_cache
 .idea
