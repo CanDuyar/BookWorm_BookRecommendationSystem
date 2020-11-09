@@ -1,0 +1,11 @@
+{% extends 'base.html'%} {% block content%}
+<div class="container">
+  <div style="margin-bottom: 20rem"></div>
+  <h1 style="text-align: center; color: red">
+    <div class="alert alert-danger" role="alert">
+      <strong>Error:</strong> No Books Found With Type
+      <em class="text-primary"> {{bt}}</em> :(
+    </div>
+  </h1>
+</div>
+{% endblock %}

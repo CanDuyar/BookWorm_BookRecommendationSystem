@@ -1,0 +1,60 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block content%}
+  <div class="container-fluid">
+    <img src="{% static 'img/logo.jpg' %}" class="img-thumbnail center" style="width: 100%; height: auto; max-width: 400px;" alt="logo"/>
+
+    <h1 style="text-align: center; padding-top: 10rem; color: blue">
+      Let Us Predict Your Next Book For Reading :)
+    </h1>
+
+    <form style="text-align: center" action="user_choise" method="POST">
+      {% csrf_token %}
+      <button
+        type="submit"
+        class="btn btn-primary btn-lg btn-block"
+        name="yes_enter"
+        value="yes"
+      >
+        Give Us Information About Some Of The Books That You Have Read
+      </button>
+      <button
+        type="submit"
+        class="btn btn-secondary btn-lg btn-block"
+        name="no_enter"
+        value="no"
+      >
+        <em class="text-body">Let Us Find You A Suitable Book</em>
+      </button>
+    </form>
+
+    <div class="loaderr book">
+      <div class="inner">
+        <div class="left"></div>
+        <div class="middle"></div>
+        <div class="right"></div>
+      </div>
+      <ul>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <a class="dribbble" href="https://dribbble.com/shots/7199149-Book-Loader" target="_blank"><img src="https://dribbble.com/assets/logo-small-2x-9fe74d2ad7b25fba0f50168523c15fda4c35534f9ea0b1011179275383035439.png"/></a>
+    </div>
+  </div>
+{% endblock%}

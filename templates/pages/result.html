@@ -1,0 +1,63 @@
+{% extends 'base.html'%} {% block content%} {% load static %}
+<div class="container-fluid">
+  <img
+    src="{% static 'img/logo.png' %}"
+    class="img-thumbnail"
+    class="center"
+    style="width: 100%; height: auto   max-width: 400px;
+"
+    alt="logo"
+  />
+
+  <h1 style="text-align: center; padding-top: 3rem; color: blue">
+    Bellow We Have Some Books For You To Read :)
+  </h1>
+
+  <div class="h2" class="text-center" class="list-group">
+    <a href="#" class="list-group-item list-group-item-action">
+      <strong> Book Name:</strong> {{book_name}}</a
+    >
+
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-success"
+    >
+      <strong> Book Writer: </strong>{{book_writer_name}}</a
+    >
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-secondary"
+      ><strong>Book Type:</strong> {{book_genres}}</a
+    >
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-info"
+    >
+      <strong>Book Publisher:</strong>{{book_publisher}}</a
+    >
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-warning"
+      ><strong>Publish Year: </strong>{{book_pub_year}}</a
+    >
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-danger"
+      ><strong>Number Of Pages: </strong>{{book_page_num}}</a
+    >
+    <a
+      id="change_stars"
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-primary"
+      ><strong>Book Rating:</strong> {{book_rating}} Stars
+    </a>
+    <a
+      href="#"
+      class="list-group-item list-group-item-action list-group-item-secondary"
+      ><strong>Book ISBN:</strong> {{book_isbn}}</a
+    >
+  </div>
+  <div style="margin-top: 40px"></div>
+</div>
+
+{% endblock %}

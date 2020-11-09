@@ -1,0 +1,31 @@
+{% extends 'base.html'%} {% block content%}
+
+<div class="container">
+  <h1 style="text-align: center; padding-top: 10rem">
+    CSE343 BOOKWORM PROJECT
+  </h1>
+
+  <h1 style="text-align: center; padding-top: 10rem; color: blue">
+    Let Us Predict Your Next Book For Reading :)
+  </h1>
+
+  <form style="text-align: center" action="result" method="GET">
+    {% csrf_token %}
+
+    <label style="text-align: center">
+      <em>Enter Name Of A Book</em>
+    </label>
+    <input type="text" name="book_name" value="" />
+    <br />
+    <br />
+    <label style="text-align: center">
+      <em>Enter Type Of The Book</em>
+    </label>
+    <input type="text" name="book_type" value="" />
+    <br />
+    <br />
+    <input type="submit" value="Get Predictions" />
+  </form>
+</div>
+
+{% endblock %}

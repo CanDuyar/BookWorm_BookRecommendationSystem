@@ -1,0 +1,40 @@
+{% extends 'base.html'%} {% block content%}
+<div class="container">
+  <h1 style="text-align: center; padding-top: 10rem">
+    CSE343 BOOKWORM PROJECT
+  </h1>
+
+  <h1 style="text-align: center; padding-top: 10rem; color: blue">
+    Let Us Predict Your Next Book For Reading :)
+  </h1>
+
+  <form
+    data-width="75%"
+    style="text-align: center"
+    action="result"
+    method="GET"
+  >
+    {% csrf_token %}
+    <select id="cars" name="cars">
+      <option value="Horror">Horror</option>
+      <option value="Crime">Crime</option>
+      <option value="History">History</option>
+      <option value="Biography">Biography</option>
+      <option value="Classic">Classic</option>
+      <option value="Science Fiction">Science Fiction</option>
+      <option value="Science">Science</option>
+      <option value="Textbook">Textbook</option>
+      <option value="Young Adult">Young Adult</option>
+      <option value="Travel">Travel</option>
+    </select>
+    <button
+      type="submit"
+      class="btn btn-secondary btn-lg btn-block"
+      name="no_enter"
+      value="no"
+    >
+      Let Us Find You A Suitable Book
+    </button>
+  </form>
+</div>
+{% endblock %}
