@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import random
 
-books = pd.read_csv("../data.csv")
+books = pd.read_csv("data.csv")
 
 books = books.loc[:,["Name","Authors","ISBN","Publisher","pagesNumber","PublishYear","Rating"]]
 
