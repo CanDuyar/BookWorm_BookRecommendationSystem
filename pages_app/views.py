@@ -8,8 +8,13 @@ from .models import BookClass
 
 
 # home page function renders index.html and returns response
+def login(request):
+    return render(request, 'pages/login.html')
+
+
+# home page function renders index.html and returns response
 def home(request):
-    return render(request, 'pages/loading_page.html')
+    return render(request, 'pages/index.html')
 
 
 # find out user choise and redirect to relevant page.
@@ -28,6 +33,34 @@ def result(request):
 
         books = books.loc[:, ["Name", "Authors", "ISBN", "Publisher", "pagesNumber", "PublishYear", "Rating"]]
         books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+
+        # Get Users Information
+        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        if 'personality' in request.POST:
+            personality = request.POST['personality'].upper()
+        else:
+            personality = ""
+
+        if 'age' in request.POST:
+            age = request.POST['age'].upper()
+        else:
+            age = ""
+
+        if 'job' in request.POST:
+            job = request.POST['job'].upper()
+        else:
+            job = ""
+
+        if 'country' in request.POST:
+            country = request.POST['country'].upper()
+        else:
+            country = ""
+
+        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        # this part should be changed according to upper values from user.
+
         bt = request.GET['cars'].upper()
         number_of_books = books.shape[0]
 
@@ -57,7 +90,7 @@ def result(request):
             max_rating = max(df5.Rating)
             df6 = df5.get_group(max_rating[0]).head(number_of_output)
 
-            book_name = df6.Name.head(number_of_output).values[0]
+            book1_name = df6.Name.head(number_of_output).values[0]
             book_writer_name = df6.Authors.head(number_of_output).values[0]
             book_isbn = df6.ISBN.head(number_of_output).values[0]
             book_publisher = df6.Publisher.head(number_of_output).values[0]
@@ -67,20 +100,66 @@ def result(request):
             book_genres = df6.Genres.head(number_of_output).values[0]
 
             return render(request, 'pages/result.html',
-                          {'book_name': book_name, 'book_genres': book_genres, 'book_writer_name': book_writer_name,
+                          {'book1_name': book1_name, 'book_genres': book_genres, 'book_writer_name': book_writer_name,
                            'book_isbn': book_isbn, 'book_publisher': book_publisher, 'book_rating': book_rating,
                            'book_page_num': book_page_num, 'book_pub_year': book_pub_year})
         else:
             return render(request, 'pages/TypeError.html', {'bt': bt})
 
-    # if user enter some books
+    # If User Enters Some Books
     else:
 
         books = books.loc[:, ["Name", "Authors", "ISBN", "Publisher", "pagesNumber", "PublishYear", "Rating"]]
         books = books.applymap(lambda s: s.upper() if type(s) == str else s)
 
-        bn = request.GET['book_name'].upper()
-        bt = request.GET['book_type'].upper()
+        # Get Books Names And Types
+        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+        if 'book1_name' in request.POST:
+            bn = request.POST['book1_name'].upper()
+        else:
+            bn = ""
+        if 'book1_type' in request.POST:
+            bt = request.POST['book1_type'].upper()
+        else:
+            bt = ""
+
+        if 'book2_name' in request.POST:
+            bn2 = request.POST['book2_name'].upper()
+        else:
+            bn2 = ""
+        if 'book1_type' in request.POST:
+            bt2 = request.POST['book2_type'].upper()
+        else:
+            bt2 = ""
+
+        if 'book3_name' in request.POST:
+            bn3 = request.POST['book3_name'].upper()
+        else:
+            bn3 = ""
+        if 'book3_type' in request.POST:
+            bt3 = request.POST['book3_type'].upper()
+        else:
+            bt3 = ""
+
+        if 'book4_name' in request.POST:
+            bn4 = request.POST['book4_name'].upper()
+        else:
+            bn4 = ""
+        if 'book4_type' in request.POST:
+            bt4 = request.POST['book4_type'].upper()
+        else:
+            bt4 = ""
+
+        if 'book5_name' in request.POST:
+            bn5 = request.POST['book5_name'].upper()
+        else:
+            bn5 = ""
+        if 'book5_type' in request.POST:
+            bt5 = request.POST['book5_type'].upper()
+        else:
+            bt5 = ""
+        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
         number_of_books = books.shape[0]
 
@@ -123,9 +202,9 @@ def result(request):
                                'book_page_num': book_page_num, 'book_pub_year': book_pub_year})
             # elif bn not in books.Name.values and bt not in books.Genres.values:
             else:
-                return render(request, 'pages/NameError.html', {'bn': bn}, {'bt': bt})
+                return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
         else:
-            return render(request, 'pages/NameError.html', {'bn': bn}, {'bt': bt})
+            return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
 
 
 def display_desktops(request):

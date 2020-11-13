@@ -1,11 +1,15 @@
 {% extends 'base.html'%} {% block content%}
 <div class="container">
-  <div style="margin-bottom: 20rem"></div>
-  <h1 style="text-align: center; color: red">
-    <div class="alert alert-danger" role="alert">
-      <strong>Error:</strong> No Books Found With Type
-      <em class="text-primary"> {{bt}}</em> :(
+  <div class="row">
+    <div class="col-sm-2"></div>
+    <div class="col-sm-8">
+      <h1 style="text-align: center; color: red">
+        <div class="alert alert-danger" role="alert">
+          <strong>Error:</strong> Couldn't Find Any Book :(
+        </div>
+      </h1>
     </div>
-  </h1>
+    <div class="col-sm-2"></div>
+  </div>
 </div>
 {% endblock %}
