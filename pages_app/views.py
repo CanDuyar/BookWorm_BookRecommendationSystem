@@ -2,10 +2,10 @@ from django.shortcuts import render
 import pandas as pd
 import numpy as np
 import random
+from pages_app.models import BookClass
+
 
 # our home page view
-from .models import BookClass
-
 
 # home page function renders index.html and returns response
 def login(request):
@@ -14,7 +14,15 @@ def login(request):
 
 # home page function renders index.html and returns response
 def home(request):
-    return render(request, 'pages/index.html')
+    books = BookClass.objects.all()
+
+    book1 = {'book1': books[1]}
+    # book2 = {'book2': books[0]}
+    # book3 = {'book3': books[2]}
+    # book4 = {'book4': books[3]}
+    # book5 = {'book5': books[4]}
+    # book6 = {'book6': books[5]}
+    return render(request, 'pages/index.html', book1)
 
 
 # find out user choise and redirect to relevant page.
@@ -205,9 +213,3 @@ def result(request):
                 return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
         else:
             return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
-
-
-def display_desktops(request):
-    items = BookClass.objects.all()
-    context = {'items': items, }
-    return render(request, 'pages/desktops.html', context)

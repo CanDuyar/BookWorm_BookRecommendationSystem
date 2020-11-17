@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages_app.apps.PagesAppConfig',
+    'users_app.apps.UsersAppConfig',
     'import_export',
 ]
 
@@ -79,9 +80,9 @@ WSGI_APPLICATION = 'Book_Worm_WebApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bwdb',
+        'NAME': 'postgres',
         'USER': 'postgres',
-        'PASSWORD': '12345',
+        'PASSWORD': '12345678',
         'HOST': 'localhost'
     }
 }
