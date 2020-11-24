@@ -121,71 +121,59 @@
 
       <div>
         <h1 style="text-align: center; padding-top: 3rem; color: rgb(243, 243, 243)">
-        This Book Fits You The Most
+          This Book Fits You The Most
         </h1>
       </div>
       
       <div class="container">
-
         <div class="row">
           <div class="col-sm-1"></div>
-          
           <div class="col-sm-10" class="h5" class="text-center" class="list-group">
-
             <li class="list-group-item list-group-item-action">
               <img src={% static 'img/Books/themartian.jpg' %} style="display:block;" width="100%" height="100%"  alt=""> </li
             >
-
-            <a href="#" class="list-group-item list-group-item-action">
-              <strong> Book Name:</strong> {{book_name}}</a
+            <a  class="list-group-item list-group-item-action">
+              <strong> Book Name:</strong>{{ books.0.title }}
+              </a
             >
-        
             <a
-              href="#"
+              
               class="list-group-item list-group-item-action list-group-item-success"
             >
-              <strong> Book Writer: </strong>{{book_writer_name}}</a
+              <strong> Book Writer: </strong>{{books.0.author}}</a
             >
             <a
-              href="#"
+        
               class="list-group-item list-group-item-action list-group-item-secondary"
-              ><strong>Book Type:</strong> {{book_genres}}</a
+              ><strong>Book Type:</strong> {{books.0.genres}}</a
             >
             <a
-              href="#"
+              
               class="list-group-item list-group-item-action list-group-item-info"
             >
-              <strong>Book Publisher:</strong>{{book_publisher}}</a
+              <strong>Number Of Pages:</strong>{{books.0.page_num}}</a
             >
             <a
-              href="#"
+              
               class="list-group-item list-group-item-action list-group-item-warning"
-              ><strong>Publish Year: </strong>{{book_pub_year}}</a
+              ><strong>Publish Year: </strong>{{books.0.pub_year}}</a
             >
             <a
-              href="#"
+              
               class="list-group-item list-group-item-action list-group-item-danger"
-              ><strong>Number Of Pages: </strong>{{book_page_num}}</a
+              ><strong>Book Rating: </strong>{{books.0.rating}}</a
             >
             <a
-              id="change_stars"
-              href="#"
-              class="list-group-item list-group-item-action list-group-item-primary"
-              ><strong>Book Rating:</strong> {{book_rating}} Stars
-            </a>
-            <a
-              href="#"
+              
               class="list-group-item list-group-item-action list-group-item-secondary"
-              ><strong>Book ISBN:</strong> {{book_isbn}}</a
+              ><strong>Book ISBN:</strong> {{books.0.isbn}}</a
             >
           </div>
-          
           <div class="col-sm-1"></div>
         </div>
         
         <div style="margin-top: 100px"></div>
       </div>
-
       <div class="container" id="page-top">
         <section class="page-section portfolio" id="portfolio">
           <div class="container">
@@ -194,511 +182,52 @@
                   <h2 class="page-section-heading text-secondary mb-0 d-inline-block">RELEVANT BOOKS</h2>
               </div>
               <br>
-              <!-- Portfolio Grid Items-->
-              <div class="row justify-content-center">
-                  <!-- Portfolio Items-->
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/themartian.jpg'%} alt="Beyond The Mars">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="book_photo">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/Don-Quixote.jpg'%} alt="book_photo">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="book_photo">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/the-color-purple.jpg'%} style="height: 238px; width: fit-content;" alt="The Color Purple">
-                      </div>
-                  </div>
-                  <div class="col-md-6 col-lg-4 mb-5">
-                      <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                          <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                              <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                          </div><img class="img-fluid" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="book_photo">
-                      </div>
-                  </div>
+              <div class="row">
+                {% if books %}
+                  {% for book in books %}
+                    <div class="col-sm-2"></div>
+                    <div style="margin-bottom: 4rem;" class="col-sm-8" class="h5" class="text-center" class="list-group">
+                      <li class="list-group-item list-group-item-action">
+                        <img src={% static 'img/Books/themartian.jpg' %} style="display:block;" width="100%" height="100%"  alt=""> </li
+                      >
+                      <a  class="list-group-item list-group-item-action">
+                        <strong> Book Name:</strong>{{ book.title }}
+                        </a
+                      >
+                      <a 
+                        class="list-group-item list-group-item-action list-group-item-success"
+                      ><strong> Book Writer: </strong>{{book.author}}</a
+                      >
+                      <a
+                        class="list-group-item list-group-item-action list-group-item-secondary"
+                        ><strong>Book Type:</strong> {{book.genres}}</a
+                      >
+                      <a 
+                        class="list-group-item list-group-item-action list-group-item-info"
+                      >
+                        <strong>Number Of Pages:</strong>{{book.page_num}}</a
+                      >
+                      <a 
+                        class="list-group-item list-group-item-action list-group-item-warning"
+                        ><strong>Publish Year: </strong>{{book.pub_year}}</a
+                      >
+                      <a
+                        class="list-group-item list-group-item-action list-group-item-danger"
+                        ><strong>Book Rating: </strong>{{book.rating}}</a
+                      >
+                      <a
+                        class="list-group-item list-group-item-action list-group-item-secondary"
+                        ><strong>Book ISBN:</strong> {{book.isbn}}</a
+                      >
+                    </div>
+                    <div class="col-sm-2"></div>
+                  {% endfor %}
+                {% else %}
+                    <h5>No Books To Display !!!</h5>
+                {% endif %}
               </div>
           </div>
         </section>
-        <!-- Portfolio Modal-->
-        <div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">Beyond The Mars</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/themartian.jpg'%} alt="book_photo">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">A book Which Will Take You To The Mars And Beyond. </p>
-                                    <div class="row">
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                          
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong class=""> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">Kill A Mockingbird</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="book_photo">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Harper Lee, believed to be one of the most influential authors to have ever existed, famously published only a single novel (up until its controversial sequel was published in 2015 just before her death). Lee’s To Kill a Mockingbird was published in 1960 and became an immediate classic of literature. </p>
-                                    <div class="row">
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                              
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal2Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">Don Quixote</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/Don-Quixote.jpg'%} alt="book_photo">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Miguel de Cervantes’s Don Quixote, perhaps the most influential and well-known work of Spanish literature, was first published in full in 1615. The novel, which is very regularly regarded as one of the best literary works of all time, tells the story of a man who takes the name “Don Quixote de la Mancha” and sets off in a fit of obsession over romantic novels about chivalry to revive the custom and become a hero himself. </p>
-                                    
-                                    <div class="row">
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                              
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal3Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">One Hundered Years Of Solidate</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="One Hundered Years Of Solidate">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">The late Colombian author Gabriel García Márquez published his most-famous work, One Hundred Years of Solitude, in 1967. The novel tells the story of seven generations of the Buendía family and follows the establishment of their town Macondo until its destruction along with the last of the family’s descendents. In fantastical form, the novel explores the genre of magic realism by emphasizing the extraordinary nature of commonplace things while mystical things are shown to be common. Márquez highlights the prevalence and power of myth and folktale in relating history and Latin American culture. The novel won many awards for Márquez, leading the way to his eventual honor of the Nobel Prize for Literature in 1982 for his entire body of work, of which One Hundred Years of Solitude is often lauded as his most triumphant.</p>
-                                  
-                                    <div class="row">                                    
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                              
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal4Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">The Color Purple</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image-->
-                                    <img class="img-fluid rounded mb-5" src={% static 'img/Books/the-color-purple.jpg'%} alt="The Elon Musk">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">Though the epistolary novel (a novel in the form of letters written by one or more characters) was most popular before the 19th century, Alice Walker became a champion of the style with her 1982 Pulitzer Prize- and National Book Award-winning novel The Color Purple. Set in the post-Civil War American South, the novel follows a young African American girl named Celie into adulthood in letters she writes to God and to her sister Nettie. Celie faces sexual abuse by her father and eventually her husband, chronicling her own suffering and growth as well as that of her friends and family. The novel explores themes of sexism, racism, gender, sexual orientation, and disability through its grouping of disadvantaged and damaged characters who, over time, grow to shape their own lives. The story was adapted into an Academy Award-nominated film in 1985 that, despite widespread critical acclaim, was notoriously snubbed of all 11 awards it was nominated for.</p>
-                                  
-                                    <div class="row">                                    
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                              
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal5Label" aria-hidden="true">
-            <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content">
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-                    <div class="modal-body text-center">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">The Great Getsbay</h2>
-                                    <!-- Icon Divider-->
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="The Great Getsbay">
-                                    <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">F. Scott Fitzgerald’s The Great Gatsby is distinguished as one of the greatest texts for introducing students to the art of reading literature critically (which means you may have read it in school). The novel is told from the perspective of a young man named Nick Carraway who has recently moved to New York City and is befriended by his eccentric nouveau riche neighbor with mysterious origins, Jay Gatsby. The Great Gatsby provides an insider’s look into the Jazz Age of the 1920s in United States history while at the same time critiquing the idea of the “American Dream.” Perhaps the most-famous aspect of the novel is its cover art—a piercing face projected onto a dark blue night sky and lights from a cityscape—an image that is also found, in a slightly different configuration, within the text itself as a key symbol.</p>
-                                  
-                                    <div class="row">                                    
-                                      <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                              
-                                        <a href="#" class="list-group-item list-group-item-action">
-                                          <strong> Book Name:</strong> {{book_name}}</a
-                                        >
-                                    
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-success"
-                                        >
-                                          <strong> Book Writer: </strong>{{book_writer_name}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book Type:</strong> {{book_genres}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-info"
-                                        >
-                                          <strong>Book Publisher:</strong>{{book_publisher}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-warning"
-                                          ><strong>Publish Year: </strong>{{book_pub_year}}</a
-                                        >
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-danger"
-                                          ><strong>Number Of Pages: </strong>{{book_page_num}}</a
-                                        >
-                                        <a
-                                          id="change_stars"
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-primary"
-                                          ><strong>Book Rating:</strong> {{book_rating}} Stars
-                                        </a>
-                                        <a
-                                          href="#"
-                                          class="list-group-item list-group-item-action list-group-item-secondary"
-                                          ><strong>Book ISBN:</strong> {{book_isbn}}</a
-                                        >
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
       </div>
     </div>
 
@@ -706,7 +235,6 @@
     <script src="{% static 'js/bootstrap.bundle.min.js ' %}"></script>
     <script src="{% static 'js/main.js' %} "></script>
     <script src="{% static 'js/lightbox.min.js' %}"></script>
-
 
     <script type="text/javascript">
       function Function() {

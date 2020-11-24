@@ -2,10 +2,50 @@ from django.shortcuts import render
 import pandas as pd
 import numpy as np
 import random
-from pages_app.models import BookClass
+from pages_app.models import BookClass, OneBook
 
 
-# our home page view
+# group function used in >>>>
+def group(books, bt, index):
+    if bt != "NONE":
+        gk = books.groupby('Genres')
+        df4 = gk.get_group(bt)
+
+        df5 = df4.groupby('average_rating')
+
+        max_rating = max(df5.average_rating)
+
+        df6 = df5.get_group(max_rating[0])
+
+        dico = {'title': df6.title.values[index], 'authors': df6.authors.values[index],
+                'genres': df6.Genres.values[index], 'page_num': df6.books_count.values[index],
+                'pub_year': df6.original_publication_year.values[index], 'rating': df6.average_rating.values[index],
+                'image_url': df6.image_url.values[index], 'isbn': df6.isbn.values[index]}
+        return dico
+        # our home page view
+
+
+def group2(books, bt):
+    if bt != "NONE":
+        gk = books.groupby('Genres')
+        df4 = gk.get_group(bt)
+
+        df5 = df4.groupby('average_rating')
+
+        max_rating = max(df5.average_rating)
+
+        df6 = df5.get_group(max_rating[0])
+
+        for x in range(5):
+            print(df6.title.values[x])
+            print(df6.authors.values[x])
+            print(df6.Genres.values[x])
+            print(df6.books_count.values[x])
+            print(df6.original_publication_year.values[x])
+            print(df6.average_rating.values[x])
+            print(df6.isbn.values[x])
+            print("\n")
+
 
 # home page function renders index.html and returns response
 def login(request):
@@ -33,183 +73,180 @@ def user_choise(request):
         return render(request, 'pages/not_inter_book.html')
 
 
-# our user_choise page view
-def result(request):
-    books = pd.read_csv("data.csv")
+# our user_chose page view
+def result1(request):
+    books = pd.read_csv("bookworm_data.csv")
 
-    if 'no_enter' in request.GET:
-
-        books = books.loc[:, ["Name", "Authors", "ISBN", "Publisher", "pagesNumber", "PublishYear", "Rating"]]
-        books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-
-        # Get Users Information
-        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-        if 'personality' in request.POST:
-            personality = request.POST['personality'].upper()
-        else:
-            personality = ""
-
-        if 'age' in request.POST:
-            age = request.POST['age'].upper()
-        else:
-            age = ""
-
-        if 'job' in request.POST:
-            job = request.POST['job'].upper()
-        else:
-            job = ""
-
-        if 'country' in request.POST:
-            country = request.POST['country'].upper()
-        else:
-            country = ""
-
-        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-
-        # this part should be changed according to upper values from user.
-
-        bt = request.GET['cars'].upper()
-        number_of_books = books.shape[0]
-
-        genres = ["Horror", "Crime", "History", "Biography", "Classic", "Science Fiction", "Science"
-            , "Textbook", "Philosophy", "Young Adult", "Travel"]
-
-        book_genres = np.zeros([number_of_books], dtype=object)
-
-        for x in range(0, number_of_books):
-            n = random.randint(0, 10)
-            book_genres[x] = genres[n].upper()
-
-        df = pd.DataFrame(book_genres)
-
-        if bt in df.values:
-
-            books["Genres"] = df
-
-            gk = books.groupby('Genres')
-
-            # user enters book's type and find books which has this type
-
-            number_of_output = 1  # number of books that will print on website
-
-            df4 = gk.get_group(bt)
-            df5 = df4.groupby('Rating')
-            max_rating = max(df5.Rating)
-            df6 = df5.get_group(max_rating[0]).head(number_of_output)
-
-            book1_name = df6.Name.head(number_of_output).values[0]
-            book_writer_name = df6.Authors.head(number_of_output).values[0]
-            book_isbn = df6.ISBN.head(number_of_output).values[0]
-            book_publisher = df6.Publisher.head(number_of_output).values[0]
-            book_rating = df6.Rating.head(number_of_output).values[0]
-            book_page_num = df6.pagesNumber.head(number_of_output).values[0]
-            book_pub_year = df6.PublishYear.head(number_of_output).values[0]
-            book_genres = df6.Genres.head(number_of_output).values[0]
-
-            return render(request, 'pages/result.html',
-                          {'book1_name': book1_name, 'book_genres': book_genres, 'book_writer_name': book_writer_name,
-                           'book_isbn': book_isbn, 'book_publisher': book_publisher, 'book_rating': book_rating,
-                           'book_page_num': book_page_num, 'book_pub_year': book_pub_year})
-        else:
-            return render(request, 'pages/TypeError.html', {'bt': bt})
-
-    # If User Enters Some Books
+    if 'book1_name' in request.POST:
+        bn = request.POST['book1_name'].upper()
     else:
+        bn = ""
+    if 'book1_type' in request.POST:
+        bt = request.POST['book1_type'].upper()
+    else:
+        bt = ""
 
-        books = books.loc[:, ["Name", "Authors", "ISBN", "Publisher", "pagesNumber", "PublishYear", "Rating"]]
-        books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+    if 'book2_name' in request.POST:
+        bn2 = request.POST['book2_name'].upper()
+    else:
+        bn2 = ""
+    if 'book1_type' in request.POST:
+        bt2 = request.POST['book2_type'].upper()
+    else:
+        bt2 = ""
 
-        # Get Books Names And Types
-        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    if 'book3_name' in request.POST:
+        bn3 = request.POST['book3_name'].upper()
+    else:
+        bn3 = ""
+    if 'book3_type' in request.POST:
+        bt3 = request.POST['book3_type'].upper()
+    else:
+        bt3 = ""
 
-        if 'book1_name' in request.POST:
-            bn = request.POST['book1_name'].upper()
-        else:
-            bn = ""
-        if 'book1_type' in request.POST:
-            bt = request.POST['book1_type'].upper()
-        else:
-            bt = ""
+    if 'book4_name' in request.POST:
+        bn4 = request.POST['book4_name'].upper()
+    else:
+        bn4 = ""
+    if 'book4_type' in request.POST:
+        bt4 = request.POST['book4_type'].upper()
+    else:
+        bt4 = ""
 
-        if 'book2_name' in request.POST:
-            bn2 = request.POST['book2_name'].upper()
-        else:
-            bn2 = ""
-        if 'book1_type' in request.POST:
-            bt2 = request.POST['book2_type'].upper()
-        else:
-            bt2 = ""
+    if 'book5_name' in request.POST:
+        bn5 = request.POST['book5_name'].upper()
+    else:
+        bn5 = ""
+    if 'book5_type' in request.POST:
+        bt5 = request.POST['book5_type'].upper()
+    else:
+        bt5 = ""
+    #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    books = books.loc[:, ["title", "authors", "isbn",
+                          "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
+    books = books.applymap(lambda s: s.upper() if type(s) == str else s)
 
-        if 'book3_name' in request.POST:
-            bn3 = request.POST['book3_name'].upper()
-        else:
-            bn3 = ""
-        if 'book3_type' in request.POST:
-            bt3 = request.POST['book3_type'].upper()
-        else:
-            bt3 = ""
+    bt.upper()
+    bt2.upper()
+    bt3.upper()
+    bt4.upper()
+    bt5.upper()
 
-        if 'book4_name' in request.POST:
-            bn4 = request.POST['book4_name'].upper()
-        else:
-            bn4 = ""
-        if 'book4_type' in request.POST:
-            bt4 = request.POST['book4_type'].upper()
-        else:
-            bt4 = ""
+    if bt == "NONE" and bt2 == "NONE" and bt3 == "NONE" and bt4 == "NONE" and bt5 == "NONE":
+        return render(request, 'pages/NameError.html')
 
-        if 'book5_name' in request.POST:
-            bn5 = request.POST['book5_name'].upper()
-        else:
-            bn5 = ""
-        if 'book5_type' in request.POST:
-            bt5 = request.POST['book5_type'].upper()
-        else:
-            bt5 = ""
-        #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    book1 = group(books, bt, 0)
+    book2 = group(books, bt2, 1)
+    book3 = group(books, bt3, 2)
+    book4 = group(books, bt4, 3)
+    book5 = group(books, bt5, 4)
+    books = []
 
-        number_of_books = books.shape[0]
+    if bt != "NONE":
+        b1 = OneBook()
+        b1.title = book1['title']
+        b1.author = book1['authors']
+        b1.genres = book1['genres']
+        b1.page_num = book1['page_num']
+        b1.pub_year = book1['pub_year']
+        b1.rating = book1['rating']
+        b1.image_url = book1['image_url']
+        b1.isbn = book1['isbn']
+        books.append(b1)
 
-        genres = ["Horror", "Crime", "Science", "History", "Biography", "Classic", "Science Fiction", "Science"
-            , "Textbook", "Philosophy", "Young Adult", "Travel"]
+    if bt2 != "NONE":
+        b2 = OneBook()
+        b2.title = book2['title']
+        b2.author = book2['authors']
+        b2.genres = book2['genres']
+        b2.page_num = book2['page_num']
+        b2.pub_year = book2['pub_year']
+        b2.rating = book2['rating']
+        b2.image_url = book2['image_url']
+        b2.isbn = book2['isbn']
+        books.append(b2)
 
-        book_genres = np.zeros([number_of_books], dtype=object)
+    if bt3 != "NONE":
+        b3 = OneBook()
+        b3.title = book3['title']
+        b3.author = book3['authors']
+        b3.genres = book3['genres']
+        b3.page_num = book3['page_num']
+        b3.pub_year = book3['pub_year']
+        b3.rating = book3['rating']
+        b3.image_url = book3['image_url']
+        b3.isbn = book3['isbn']
+        books.append(b3)
 
-        for x in range(0, number_of_books):
-            n = random.randint(0, 11)
-            book_genres[x] = genres[n].upper()
+    if bt4 != "NONE":
+        b4 = OneBook()
+        b4.title = book4['title']
+        b4.author = book4['authors']
+        b4.genres = book4['genres']
+        b4.page_num = book4['page_num']
+        b4.pub_year = book4['pub_year']
+        b4.rating = book4['rating']
+        b4.image_url = book4['image_url']
+        b4.isbn = book4['isbn']
+        books.append(b4)
 
-        df = pd.DataFrame(book_genres)
-        books["Genres"] = df
+    if bt5 != "NONE":
+        b5 = OneBook()
+        b5.title = book5['title']
+        b5.author = book5['authors']
+        b5.genres = book5['genres']
+        b5.page_num = book5['page_num']
+        b5.pub_year = book5['pub_year']
+        b5.rating = book5['rating']
+        b5.image_url = book5['image_url']
+        b5.isbn = book5['isbn']
+        books.append(b5)
 
-        if bn in books.Name.values or bt in books.Genres.values:
+    return render(request, 'pages/result.html', {'books': books})
 
-            if bt in books.Genres.values:
-                gk = books.groupby('Genres')
-                df4 = gk.get_group(bt)
-                # user enters book's type and find books which has this type
-                number_of_output = 1  # number of books that will print on website
 
-                df5 = df4.groupby('Rating')
-                max_rating = max(df5.Rating)
+def result2(request):
+    books = pd.read_csv("bookworm_data.csv")
 
-                df6 = df5.get_group(max_rating[0]).head(number_of_output)
-                book_name = df6.Name.head(number_of_output).values[0]
-                book_writer_name = df6.Authors.head(number_of_output).values[0]
-                book_isbn = df6.ISBN.head(number_of_output).values[0]
-                book_publisher = df6.Publisher.head(number_of_output).values[0]
-                book_rating = df6.Rating.head(number_of_output).values[0]
-                book_page_num = df6.pagesNumber.head(number_of_output).values[0]
-                book_pub_year = df6.PublishYear.head(number_of_output).values[0]
-                book_genres = df6.Genres.head(number_of_output).values[0]
+    books = books.loc[:, ["title", "authors", "isbn",
+                          "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
 
-                return render(request, 'pages/result.html',
-                              {'book_name': book_name, 'book_genres': book_genres, 'book_writer_name': book_writer_name,
-                               'book_isbn': book_isbn, 'book_publisher': book_publisher, 'book_rating': book_rating,
-                               'book_page_num': book_page_num, 'book_pub_year': book_pub_year})
-            # elif bn not in books.Name.values and bt not in books.Genres.values:
-            else:
-                return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
-        else:
-            return render(request, 'pages/NameError.html', {'bn': bn, 'bt': bt})
+    books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+
+    if 'personality' in request.POST:
+        personality = request.POST['personality'].upper()
+    else:
+        personality = ""
+
+    if 'age' in request.POST:
+        age = request.POST['age'].upper()
+    else:
+        age = ""
+
+    if 'job' in request.POST:
+        job = request.POST['job'].upper()
+    else:
+        job = ""
+
+    if 'country' in request.POST:
+        country = request.POST['country'].upper()
+    else:
+        country = ""
+
+    # below prints work !!!!!!!!!!
+    print(personality)
+    print(age)
+    print(job)
+    print(country)
+
+    # Please select 3 photos from the website as recommendation data(user selected photos for bt1,bt2,bt3)
+    # you should enter the book types with capital letters
+    bt = "HORROR"
+    bt2 = "HISTORY"
+    bt3 = "YOUNGADULT"
+
+    group2(books, bt)
+    group2(books, bt2)
+    group2(books, bt3)
+
+    return render(request, 'pages/NameError.html')

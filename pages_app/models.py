@@ -15,3 +15,14 @@ class BookClass(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class OneBook:
+    title: str
+    author: str
+    genres: str
+    page_num: int
+    pub_year: int
+    rating: int
+    image_url: str
+    isbn: int
