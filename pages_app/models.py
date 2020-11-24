@@ -14,6 +14,7 @@ class BookClass(models.Model):
     def __str__(self):
         return self.title
 
+
 class OneBook:
     title: str
     author: str

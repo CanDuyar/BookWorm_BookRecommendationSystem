@@ -215,13 +215,13 @@ def result2(request):
         bt3 = selected_types[2].upper()
 
     book_list = []
-    temp = group2(books,bt)
+    temp = group2(books, bt)
     book_list.append(temp[0])
     book_list.append(temp[1])
     book_list.append(temp[2])
     book_list.append(temp[3])
 
-    temp = group2(books,bt2)
+    temp = group2(books, bt2)
     book_list.append(temp[0])
     book_list.append(temp[1])
     book_list.append(temp[2])
