@@ -3,19 +3,16 @@ from django.db import models
 
 # Create your models here.
 class BookClass(models.Model):
-    name = models.CharField(max_length=100, default="", blank=False)
-    genres = models.CharField(max_length=100, default="", blank=False)
+    title = models.CharField(max_length=100, default="", blank=False)
     writer = models.CharField(max_length=100, default="", blank=False)
-    isbn = models.IntegerField(default=0)
-    publisher = models.CharField(max_length=100, default="", blank=False)
-    rating = models.IntegerField(default=0)
+    genres = models.CharField(max_length=100, default="", blank=False)
     page_num = models.IntegerField(default=0)
     pub_year = models.IntegerField(default=0)
-    description = models.TextField(default="")
+    rating = models.IntegerField(default=0)
+    isbn = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.name
-
+        return self.title
 
 class OneBook:
     title: str

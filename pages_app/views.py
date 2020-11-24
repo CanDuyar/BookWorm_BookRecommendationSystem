@@ -1,7 +1,5 @@
 from django.shortcuts import render
 import pandas as pd
-import numpy as np
-import random
 from pages_app.models import BookClass, OneBook
 
 
@@ -12,11 +10,8 @@ def group(books, bt, index):
         df4 = gk.get_group(bt)
 
         df5 = df4.groupby('average_rating')
-
         max_rating = max(df5.average_rating)
-
         df6 = df5.get_group(max_rating[0])
-
         dico = {'title': df6.title.values[index], 'authors': df6.authors.values[index],
                 'genres': df6.Genres.values[index], 'page_num': df6.books_count.values[index],
                 'pub_year': df6.original_publication_year.values[index], 'rating': df6.average_rating.values[index],
@@ -26,25 +21,27 @@ def group(books, bt, index):
 
 
 def group2(books, bt):
-    if bt != "NONE":
-        gk = books.groupby('Genres')
-        df4 = gk.get_group(bt)
 
-        df5 = df4.groupby('average_rating')
+    gk = books.groupby('Genres')
+    df4 = gk.get_group(bt)
+    df5 = df4.groupby('average_rating')
+    max_rating = max(df5.average_rating)
+    df6 = df5.get_group(max_rating[0])
 
-        max_rating = max(df5.average_rating)
+    book_list = []
+    for x in range(4):
+        book_obj = OneBook()
+        book_obj.title = df6.title.values[x]
+        book_obj.author = df6.authors.values[x]
+        book_obj.genres = df6.Genres.values[x]
+        book_obj.page_num = df6.books_count.values[x]
+        book_obj.pub_year = df6.original_publication_year.values[x]
+        book_obj.rating = df6.average_rating.values[x]
+        book_obj.image_url = df6.image_url.values[x]
+        book_obj.isbn = df6.isbn.values[x]
+        book_list.append(book_obj)
 
-        df6 = df5.get_group(max_rating[0])
-
-        for x in range(5):
-            print(df6.title.values[x])
-            print(df6.authors.values[x])
-            print(df6.Genres.values[x])
-            print(df6.books_count.values[x])
-            print(df6.original_publication_year.values[x])
-            print(df6.average_rating.values[x])
-            print(df6.isbn.values[x])
-            print("\n")
+    return book_list
 
 
 # home page function renders index.html and returns response
@@ -54,23 +51,17 @@ def login(request):
 
 # home page function renders index.html and returns response
 def home(request):
-    books = BookClass.objects.all()
-
-    book1 = {'book1': books[1]}
-    # book2 = {'book2': books[0]}
-    # book3 = {'book3': books[2]}
-    # book4 = {'book4': books[3]}
-    # book5 = {'book5': books[4]}
-    # book6 = {'book6': books[5]}
-    return render(request, 'pages/index.html', book1)
+    books = BookClass.objects.all().order_by('-id')[:6]
+    return render(request, 'pages/index.html', {'books': books})
 
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
+    books = BookClass.objects.all().order_by('-id')[:6]
     if 'yes_enter' in request.POST:
-        return render(request, 'pages/inter_book.html')
+        return render(request, 'pages/inter_book.html', {'books': books})
     elif 'no_enter' in request.POST:
-        return render(request, 'pages/not_inter_book.html')
+        return render(request, 'pages/not_inter_book.html', {'books': books})
 
 
 # our user_chose page view
@@ -121,7 +112,7 @@ def result1(request):
         bt5 = request.POST['book5_type'].upper()
     else:
         bt5 = ""
-    #  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
     books = books.loc[:, ["title", "authors", "isbn",
                           "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
@@ -213,40 +204,33 @@ def result2(request):
 
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
 
-    if 'personality' in request.POST:
-        personality = request.POST['personality'].upper()
+    if request.method == 'POST':
+        selected_types = request.POST.getlist('ckb')
+
+    if len(selected_types) < 3:
+        return render(request, 'pages/selected_book_error.html')
     else:
-        personality = ""
+        bt = selected_types[0].upper()
+        bt2 = selected_types[1].upper()
+        bt3 = selected_types[2].upper()
 
-    if 'age' in request.POST:
-        age = request.POST['age'].upper()
-    else:
-        age = ""
+    book_list = []
+    temp = group2(books,bt)
+    book_list.append(temp[0])
+    book_list.append(temp[1])
+    book_list.append(temp[2])
+    book_list.append(temp[3])
 
-    if 'job' in request.POST:
-        job = request.POST['job'].upper()
-    else:
-        job = ""
+    temp = group2(books,bt2)
+    book_list.append(temp[0])
+    book_list.append(temp[1])
+    book_list.append(temp[2])
+    book_list.append(temp[3])
 
-    if 'country' in request.POST:
-        country = request.POST['country'].upper()
-    else:
-        country = ""
+    temp = group2(books, bt3)
+    book_list.append(temp[0])
+    book_list.append(temp[1])
+    book_list.append(temp[2])
+    book_list.append(temp[3])
 
-    # below prints work !!!!!!!!!!
-    print(personality)
-    print(age)
-    print(job)
-    print(country)
-
-    # Please select 3 photos from the website as recommendation data(user selected photos for bt1,bt2,bt3)
-    # you should enter the book types with capital letters
-    bt = "HORROR"
-    bt2 = "HISTORY"
-    bt3 = "YOUNGADULT"
-
-    group2(books, bt)
-    group2(books, bt2)
-    group2(books, bt3)
-
-    return render(request, 'pages/NameError.html')
+    return render(request, 'pages/result.html', {'books': book_list})

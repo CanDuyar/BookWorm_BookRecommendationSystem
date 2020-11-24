@@ -1,377 +1,640 @@
 {% load static %}
 <!DOCTYPE html>  
 <html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
-  <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
-  <title>Enter_Info - Book Worm</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+       
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}
+        </style>
 
-  <!-- Font Awesome icons (free version)-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <link href={% static 'css/styles.css'%} rel="stylesheet">
+        <!-- Fonts CSS-->
+        <link rel="stylesheet" href={% static 'css/heading.css'%}>
+        <link rel="stylesheet" href={% static 'css/body.css'%}>
+        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
+        <title>Not_Enter_Info - Book Worm</title>
+    </head>
 
-  <!-- Core theme CSS (includes Bootstrap)-->
-  <style type="text/css">svg:not(:root).svg-inline--fa{overflow:visible}.svg-inline--fa{display:inline-block;font-size:inherit;height:1em;overflow:visible;vertical-align:-.125em}.svg-inline--fa.fa-lg{vertical-align:-.225em}.svg-inline--fa.fa-w-1{width:.0625em}.svg-inline--fa.fa-w-2{width:.125em}.svg-inline--fa.fa-w-3{width:.1875em}.svg-inline--fa.fa-w-4{width:.25em}.svg-inline--fa.fa-w-5{width:.3125em}.svg-inline--fa.fa-w-6{width:.375em}.svg-inline--fa.fa-w-7{width:.4375em}.svg-inline--fa.fa-w-8{width:.5em}.svg-inline--fa.fa-w-9{width:.5625em}.svg-inline--fa.fa-w-10{width:.625em}.svg-inline--fa.fa-w-11{width:.6875em}.svg-inline--fa.fa-w-12{width:.75em}.svg-inline--fa.fa-w-13{width:.8125em}.svg-inline--fa.fa-w-14{width:.875em}.svg-inline--fa.fa-w-15{width:.9375em}.svg-inline--fa.fa-w-16{width:1em}.svg-inline--fa.fa-w-17{width:1.0625em}.svg-inline--fa.fa-w-18{width:1.125em}.svg-inline--fa.fa-w-19{width:1.1875em}.svg-inline--fa.fa-w-20{width:1.25em}.svg-inline--fa.fa-pull-left{margin-right:.3em;width:auto}.svg-inline--fa.fa-pull-right{margin-left:.3em;width:auto}.svg-inline--fa.fa-border{height:1.5em}.svg-inline--fa.fa-li{width:2em}.svg-inline--fa.fa-fw{width:1.25em}.fa-layers svg.svg-inline--fa{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.fa-layers{display:inline-block;height:1em;position:relative;text-align:center;vertical-align:-.125em;width:1em}.fa-layers svg.svg-inline--fa{-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter,.fa-layers-text{display:inline-block;position:absolute;text-align:center}.fa-layers-text{left:50%;top:50%;-webkit-transform:translate(-50%,-50%);transform:translate(-50%,-50%);-webkit-transform-origin:center center;transform-origin:center center}.fa-layers-counter{background-color:#ff253a;border-radius:1em;-webkit-box-sizing:border-box;box-sizing:border-box;color:#fff;height:1.5em;line-height:1;max-width:5em;min-width:1.5em;overflow:hidden;padding:.25em;right:0;text-overflow:ellipsis;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-bottom-right{bottom:0;right:0;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom right;transform-origin:bottom right}.fa-layers-bottom-left{bottom:0;left:0;right:auto;top:auto;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:bottom left;transform-origin:bottom left}.fa-layers-top-right{right:0;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top right;transform-origin:top right}.fa-layers-top-left{left:0;right:auto;top:0;-webkit-transform:scale(.25);transform:scale(.25);-webkit-transform-origin:top left;transform-origin:top left}.fa-lg{font-size:1.3333333333em;line-height:.75em;vertical-align:-.0667em}.fa-xs{font-size:.75em}.fa-sm{font-size:.875em}.fa-1x{font-size:1em}.fa-2x{font-size:2em}.fa-3x{font-size:3em}.fa-4x{font-size:4em}.fa-5x{font-size:5em}.fa-6x{font-size:6em}.fa-7x{font-size:7em}.fa-8x{font-size:8em}.fa-9x{font-size:9em}.fa-10x{font-size:10em}.fa-fw{text-align:center;width:1.25em}.fa-ul{list-style-type:none;margin-left:2.5em;padding-left:0}.fa-ul>li{position:relative}.fa-li{left:-2em;position:absolute;text-align:center;width:2em;line-height:inherit}.fa-border{border:solid .08em #eee;border-radius:.1em;padding:.2em .25em .15em}.fa-pull-left{float:left}.fa-pull-right{float:right}.fa.fa-pull-left,.fab.fa-pull-left,.fal.fa-pull-left,.far.fa-pull-left,.fas.fa-pull-left{margin-right:.3em}.fa.fa-pull-right,.fab.fa-pull-right,.fal.fa-pull-right,.far.fa-pull-right,.fas.fa-pull-right{margin-left:.3em}.fa-spin{-webkit-animation:fa-spin 2s infinite linear;animation:fa-spin 2s infinite linear}.fa-pulse{-webkit-animation:fa-spin 1s infinite steps(8);animation:fa-spin 1s infinite steps(8)}@-webkit-keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes fa-spin{0%{-webkit-transform:rotate(0);transform:rotate(0)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}.fa-rotate-90{-webkit-transform:rotate(90deg);transform:rotate(90deg)}.fa-rotate-180{-webkit-transform:rotate(180deg);transform:rotate(180deg)}.fa-rotate-270{-webkit-transform:rotate(270deg);transform:rotate(270deg)}.fa-flip-horizontal{-webkit-transform:scale(-1,1);transform:scale(-1,1)}.fa-flip-vertical{-webkit-transform:scale(1,-1);transform:scale(1,-1)}.fa-flip-both,.fa-flip-horizontal.fa-flip-vertical{-webkit-transform:scale(-1,-1);transform:scale(-1,-1)}:root .fa-flip-both,:root .fa-flip-horizontal,:root .fa-flip-vertical,:root .fa-rotate-180,:root .fa-rotate-270,:root .fa-rotate-90{-webkit-filter:none;filter:none}.fa-stack{display:inline-block;height:2em;position:relative;width:2.5em}.fa-stack-1x,.fa-stack-2x{bottom:0;left:0;margin:auto;position:absolute;right:0;top:0}.svg-inline--fa.fa-stack-1x{height:1em;width:1.25em}.svg-inline--fa.fa-stack-2x{height:2em;width:2.5em}.fa-inverse{color:#fff}.sr-only{border:0;clip:rect(0,0,0,0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}.sr-only-focusable:active,.sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto}.svg-inline--fa .fa-primary{fill:var(--fa-primary-color,currentColor);opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa .fa-secondary{fill:var(--fa-secondary-color,currentColor);opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-primary{opacity:.4;opacity:var(--fa-secondary-opacity,.4)}.svg-inline--fa.fa-swap-opacity .fa-secondary{opacity:1;opacity:var(--fa-primary-opacity,1)}.svg-inline--fa mask .fa-primary,.svg-inline--fa mask .fa-secondary{fill:#000}.fad.fa-inverse{color:#fff}
-</style>
-  
-  <link href={% static 'css/styles.css'%} rel="stylesheet">
-  <!-- Fonts CSS-->
-  <link rel="stylesheet" href={% static 'css/heading.css'%}>
-  <link rel="stylesheet" href={% static 'css/body.css'%}>
-</head>
-
-<body class="container" id="page-top">
-  <nav class="navbar navbar-expand-lg bg-secondary fixed-top navbar-shrink" id="mainNav">
-      <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src={% static 'img/logo.png'%} alt="logo"></a>
-          <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></button>
-      </div>
-  </nav>
-  <header class="masthead bg-primary text-white text-center">
-      <div class="container d-flex align-items-center flex-column">
-          <!-- Masthead Heading-->
-          <h1 style="color: #262626;" class="masthead-heading mb-0">LET US KNOW ABOUT YOU&nbsp;</h1>
-          <!-- Masthead Subheading-->
-          <p style="color: #262626;" class="pre-wrap masthead-subheading font-weight-light mb-0">SO WE CAN OFFER YOU RELATED BOOKS</p>
-      </div>
-      <br><br><br><br>
-      <div>
-        <form style="text-align: center" action="result2" method="POST">
-          {% csrf_token %}
-           
-          <div class="form-group">
-            <div class="row">
-                <div class="col-sm 2"></div>
-                <div class="col-sm-8">
-                    <h2>How Do You Describe Yourself?</h2>
-                    <br>
-                    <select class="form-control" name="personality" id="personality">
-                      <option value="none">Prefer Not To Tell</option>
-                      <option value="ordinary">An Ordinary Person</option>
-                      <option value="social">A Social Person</option>
-                      <option value="asocial">An Asocial Person</option>
-                      <option value="emotional">An Emotional Person</option>
-                      <option value="serious">A Serious Person</option>
-                    </select>
-                </div>
-                <div class="col-sm-2"></div>
+    <body style="background-color:#EB4511;"  class="container" id="page-top">
+        <nav class="navbar navbar-expand-lg bg-secondary fixed-top navbar-shrink" id="mainNav">
+            <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src={% static 'img/logo.png'%} alt="logo"></a>
+                <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></button>
             </div>
-            <br><br>
-            <div class="row">
-                <div class="col-sm 2"></div>
-                <div class="col-sm-8">
-                    <h2>How Old Do You Feel Like?</h2>
-                    <br>
-                    <select class="form-control" name="age" id="age">
-                      <option value="none">Prefer Not To Tell</option>
-                      <option value="5-10">5 - 10</option>
-                      <option value="10-20"> 10 - 20</option>
-                      <option value="20-30">20 - 30</option>
-                      <option value="30-40">30 - 40 </option>
-                    </select>
-                </div>
-                <div class="col-sm-2"></div>
+        </nav>
+        <header class="masthead bg-primary text-white text-center">
+            <div class="container d-flex align-items-center flex-column">
+                <!-- Masthead Heading-->
+                <h1 style="color: #262626;" class="masthead-heading mb-0">SELECT 3 IMAGES &nbsp;</h1>
+                <!-- Masthead Subheading-->
+                <p style="color: #262626;" class="pre-wrap masthead-subheading font-weight-light mb-0">FROM THE IMAGES TO PREDICT</p>
             </div>
-            <br><br>
-            <div class="row">
-                <div class="col-sm 2"></div>
-                <div class="col-sm-8">
-                  <h2>What Type Of Job Do You Do?</h2>
-                    <br>  
-                    <select class="form-control" name="job" id="job">
-                      <option value="none">Prefer Not To Tell</option>
-                      <option value="enginner">Engineer</option>
-                      <option value="selfemployed">Self Employeed</option>
-                      <option value="politaion">Politician</option>
-                      <option value="actor">Actor - Actress</option>
-                      <option value="teacher">Teacher</option>
-                      <option value="cowboy">Cow Boy</option>
-                      <option value="gamer">Gamer</option>
-                      <option value="ceo">CEO</option>
-                      <option value="other">Other</option>
-                    </select>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-            <br><br>
-            <div class="row">
-                <div class="col-sm 2"></div>
-                <div class="col-sm-8">
-                  <h2>You Live In?</h2>
-                    <br>
-                    <select class="form-control" name="country" id="country">
-                      <option value="none">Prefer Not To Tell</option>
-                      <option value="turkey">Turkey</option>
-                      <option value="england">England</option>
-                      <option value="german">German</option>
-                      <option value="pakistan">Pakistan</option>
-                      <option value="india">India</option>
-                      <option value="poland">Poland</option>
-                      <option value="austria">Austria Book</option>
-                      <option value="greece">Greece</option>
-                      <option value="azerbaijan">Azerbaijan</option>
-                    </select>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-            <br><br>
-            <div class="row">
-              <div class="col-sm 4"></div>
-              <div class="col-sm-4">
-                <button
-                    type="submit"
-                    class="btn btn-dark btn-lg btn-block"
-                    name="no_enter"
-                    value="no"
-                  >
-                    <em  class="h3">Press To Predict</em>
-                  </button>
-              </div>
-              <div class="col-sm-4"></div>
-            </div>
+            <div>
+                <div class="pricing-level">
+                    <form  name = "form1" action="result2" method="POST">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <section class="page-section portfolio" id="portfolio">
+                                <div class="container">
+                                    <!-- Portfolio Grid Items-->
+                                    <div class="row justify-content-center">
+                                        <!-- Portfolio Items-->
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/bio.jpg'%} alt="Biography">
+                                            </div>
             
-          </div>
-        </form>
-    
-  </header>
-  
-  <section class="page-section portfolio" id="portfolio">
-      <div class="container">
-          <!-- Portfolio Section Heading-->
-          <div class="text-center">
-              <h2 class="page-section-heading text-secondary mb-0 d-inline-block">MORE BOOKS</h2>
-          </div>
-          <!-- Icon Divider-->
-          <div class="divider-custom">
-              <div class="divider-custom-line"></div>
-              <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-              <div class="divider-custom-line"></div>
-          </div>
-          <!-- Portfolio Grid Items-->
-          <div class="row justify-content-center">
-              <!-- Portfolio Items-->
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/themartian.jpg'%} alt="Beyond The Mars">
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="Kill A Mockingbird">
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/Don-Quixote.jpg'%} alt="Don Quixote">
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="One Hundered Years Of Solidate">
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/the-color-purple.jpg'%} style="height: 238px; width: fit-content;" alt="The Color Purple">
-                  </div>
-              </div>
-              <div class="col-md-6 col-lg-4 mb-5">
-                  <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                      <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                          <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
-                      </div><img class="img-fluid" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="The Great Getsbay">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <!-- Portfolio Modal-->
-  <div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">Beyond The Mars</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/themartian.jpg'%} alt="Beyond The Mars">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">A book Which Will Take You To The Mars And Beyond. </p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">Kill A Mockingbird</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="Kill A Mockingbird">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">Harper Lee, believed to be one of the most influential authors to have ever existed, famously published only a single novel (up until its controversial sequel was published in 2015 just before her death). Lee’s To Kill a Mockingbird was published in 1960 and became an immediate classic of literature. </p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal2Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">Don Quixote</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/Don-Quixote.jpg'%} alt="Don Quixote">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">Miguel de Cervantes’s Don Quixote, perhaps the most influential and well-known work of Spanish literature, was first published in full in 1615. The novel, which is very regularly regarded as one of the best literary works of all time, tells the story of a man who takes the name “Don Quixote de la Mancha” and sets off in a fit of obsession over romantic novels about chivalry to revive the custom and become a hero himself. </p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal3Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">One Hundered Years Of Solidate</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="One Hundered Years Of Solidate">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">The late Colombian author Gabriel García Márquez published his most-famous work, One Hundred Years of Solitude, in 1967. The novel tells the story of seven generations of the Buendía family and follows the establishment of their town Macondo until its destruction along with the last of the family’s descendents. In fantastical form, the novel explores the genre of magic realism by emphasizing the extraordinary nature of commonplace things while mystical things are shown to be common. Márquez highlights the prevalence and power of myth and folktale in relating history and Latin American culture. The novel won many awards for Márquez, leading the way to his eventual honor of the Nobel Prize for Literature in 1982 for his entire body of work, of which One Hundred Years of Solitude is often lauded as his most triumphant.</p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal4Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">The Color Purple</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image-->
-                              <img class="img-fluid rounded mb-5" src={% static 'img/Books/the-color-purple.jpg'%} alt="The Elon Musk">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">Though the epistolary novel (a novel in the form of letters written by one or more characters) was most popular before the 19th century, Alice Walker became a champion of the style with her 1982 Pulitzer Prize- and National Book Award-winning novel The Color Purple. Set in the post-Civil War American South, the novel follows a young African American girl named Celie into adulthood in letters she writes to God and to her sister Nettie. Celie faces sexual abuse by her father and eventually her husband, chronicling her own suffering and growth as well as that of her friends and family. The novel explores themes of sexism, racism, gender, sexual orientation, and disability through its grouping of disadvantaged and damaged characters who, over time, grow to shape their own lives. The story was adapted into an Academy Award-nominated film in 1985 that, despite widespread critical acclaim, was notoriously snubbed of all 11 awards it was nominated for.</p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal5Label" aria-hidden="true">
-      <div class="modal-dialog modal-xl" role="document">
-          <div class="modal-content">
-              <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
-              <div class="modal-body text-center">
-                  <div class="container">
-                      <div class="row justify-content-center">
-                          <div class="col-lg-8">
-                              <!-- Portfolio Modal - Title-->
-                              <h2 class="portfolio-modal-title text-secondary mb-0">The Great Getsbay</h2>
-                              <!-- Icon Divider-->
-                              <div class="divider-custom">
-                                  <div class="divider-custom-line"></div>
-                                  <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
-                                  <div class="divider-custom-line"></div>
-                              </div>
-                              <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="The Great Getsbay">
-                              <!-- Portfolio Modal - Text-->
-                              <p class="mb-5">F. Scott Fitzgerald’s The Great Gatsby is distinguished as one of the greatest texts for introducing students to the art of reading literature critically (which means you may have read it in school). The novel is told from the perspective of a young man named Nick Carraway who has recently moved to New York City and is befriended by his eccentric nouveau riche neighbor with mysterious origins, Jay Gatsby. The Great Gatsby provides an insider’s look into the Jazz Age of the 1920s in United States history while at the same time critiquing the idea of the “American Dream.” Perhaps the most-famous aspect of the novel is its cover art—a piercing face projected onto a dark blue night sky and lights from a cityscape—an image that is also found, in a slightly different configuration, within the text itself as a key symbol.</p>
-                              <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
-  <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-  <div class="scroll-to-top d-lg-none position-fixed" style="display: block;"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i class="fa fa-chevron-up"></i> --></a></div>
-  <!-- Bootstrap core JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-  <!-- Third party plugin JS-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-  <!-- Contact form JS-->
-  <script src="assets/mail/jqBootstrapValidation.js"></script>
-  <script src="assets/mail/contact_me.js"></script>
-  <!-- Core theme JS-->
-  <script src={% static 'js/scripts.js'%}></script>
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="biography" onclick='chkcontrol(0)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
 
-</body>
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/classic.jpg'%} alt="classic">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="classic" onclick='chkcontrol(1)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/crime.jpg'%} alt="crime">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="crime" onclick='chkcontrol(2)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/history.jpg'%} alt="history">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="history" onclick='chkcontrol(3)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/horror.jpg'%} alt="horror">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="horror" onclick='chkcontrol(4)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/philosopy.jpg'%} alt="philosopy">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="philosophy" onclick='chkcontrol(5)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/science_fiction.jpg'%} alt="science_fiction">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="sciencefiction" onclick='chkcontrol(6)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/science.jpg'%} alt="science">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="science" onclick='chkcontrol(7)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/travel.jpg'%} alt="travel">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="travel" onclick='chkcontrol(8)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/young_adult.jpg'%} alt="young_adult">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="youngadult" onclick='chkcontrol(9)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 col-lg-4 mb-5">
+                                            <div class="portfolio-item mx-auto" data-toggle="modal">
+                                                <img class="img-fluid" src={% static 'img/interface2_photos/textbook.jpg'%} alt="textbook">
+                                            </div>
+            
+                                            <div class="row">
+                                                <div class="col-sm-2"></div>
+                                                <div class="col-sm-8">
+                                                    <input type=checkbox name=ckb value="textbook" onclick='chkcontrol(10)';>
+                                                    <label for="ckb"> <strong> Select The Image</strong></label>
+                                                </div>
+                                                <div class="col-sm-2"></div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </section>
+                            <div class="row">
+                                <div class="col-sm 4"></div>
+                                <div class="col-sm-4">
+                                    <button type="submit" class="btn btn-dark btn-lg btn-block" name="no_enter" value="no">
+                                        <em  class="h3">Press To Predict</em>
+                                    </button>
+                                </div>
+                                <div class="col-sm-4"></div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </header>
+        <section class="page-section portfolio" id="portfolio">
+            <div class="container">
+                <!-- Portfolio Section Heading-->
+                <div class="text-center">
+                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">MORE BOOKS</h2>
+                </div>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                    <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Grid Items-->
+                <div class="row justify-content-center">
+                    <!-- Portfolio Items-->
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal0">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/themartian.jpg'%} alt="Beyond The Mars">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="Kill A Mockingbird">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/Don-Quixote.jpg'%} alt="Don Quixote">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="One Hundered Years Of Solidate">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/the-color-purple.jpg'%} style="height: 238px; width: fit-content;" alt="The Color Purple">
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 mb-5">
+                        <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
+                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                                <div class="portfolio-item-caption-content text-center text-white"><svg class="svg-inline--fa fa-plus fa-w-14 fa-3x" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="plus" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z"></path></svg><!-- <i class="fas fa-plus fa-3x"></i> --></div>
+                            </div><img class="img-fluid" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="The Great Getsbay">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Books Modal-->
+        <div class="portfolio-modal modal fade" id="portfolioModal0" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.0.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/themartian.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.0.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.0.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.0.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.0.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.0.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.0.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.0.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.1.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.1.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.1.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.1.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.1.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.1.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.1.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.1.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal2Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.2.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/Don-Quixote.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.2.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.2.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.2.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.2.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.2.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.2.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.2.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal3Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.3.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.3.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.3.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.3.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.3.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.3.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.3.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.3.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal4Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.4.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-color-purple.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.4.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.4.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.4.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.4.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.4.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.4.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.4.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal5Label" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.5.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="book_photo">
+                                    <!-- Portfolio Modal - Text-->
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
+
+                                    <div class="row">
+                                        <div class="col-sm-12" class="h5" class="text-center" class="list-group">
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.5.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.5.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.5.genres}}</a>
+                                        
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.5.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.5.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.5.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.5.isbn}}</a>
+                                        </div>
+                                        </div><br>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>        
+        </div>
+
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed" style="display: block;"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i class="fa fa-chevron-up"></i> --></a></div>
+    
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src={% static 'js/scripts.js'%}></script>
+
+        <script type="text/javascript"> 
+            function chkcontrol(j) {
+                var sum = 0;
+                for(var i = 0; i < document.form1.ckb.length; i++){
+                
+                    if(document.form1.ckb[i].checked){
+                        sum = sum + 1;
+                    }
+                    
+                    if(sum > 3){
+                        sum = sum - 1;
+                        document.form1.ckb[j].checked = false ;
+                        
+                        alert("Only 3 Selections Are Allowed :)") 
+                        //return false;
+                    }
+                }
+            }
+            </script>
+    </body>
 </html>

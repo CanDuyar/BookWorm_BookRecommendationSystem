@@ -4,11 +4,9 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
-        <title>Home - Book Worm</title>
-
+        <meta name="description" content="main pages BookWork">
+        <meta name="author" content="Ashraf Yawar">
+       
         <!-- Font Awesome icons (free version)-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
 
@@ -17,9 +15,10 @@
         </style>
     
         <link href={% static 'css/styles.css'%} rel="stylesheet">
-        <!-- Fonts CSS-->
         <link rel="stylesheet" href={% static 'css/heading.css'%}>
         <link rel="stylesheet" href={% static 'css/body.css'%}>
+        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
+        <title>Home - Book Worm</title>
     </head>
 
     <body id="page-top">
@@ -40,7 +39,8 @@
         </nav>
         <header class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
-                <!-- Masthead Avatar Image--><img class="masthead-avatar mb-5" src={% static 'img/Book-icon.png' %} alt="">
+                <!-- Masthead Avatar Image-->
+                <img class="masthead-avatar mb-5" src={% static 'img/Book-icon.png' %} alt="">
                 <!-- Masthead Heading-->
                 <h1 class="masthead-heading mb-0">BOOK WORM&nbsp;</h1>
                 <!-- Masthead Subheading-->
@@ -50,17 +50,11 @@
             <div>
             <form style="text-align: center" action="user_choise" method="POST">
                 {% csrf_token %}
-                
                 <div class="row">
                     <div class="col-sm 4"></div>
                     <div class="col-sm-4">
-                        <button
-                        type="submit"
-                        class="btn btn-warning btn-lg btn-block"
-                        name="yes_enter"
-                        value="yes"
-                        >
-                        <em class="h3">ENTER SOME BOOKS INFO</em> 
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="yes_enter" value="yes">
+                            <em class="h3">ENTER SOME BOOKS INFO</em> 
                         </button>
                     </div>
                     <div class="col-sm-4"></div>
@@ -69,19 +63,13 @@
                 <div class="row">
                     <div class="col-sm 4"></div>
                     <div class="col-sm-4">
-                        <button
-                        type="submit"
-                        class="btn btn-warning btn-lg btn-block"
-                        name="no_enter"
-                        value="no"
-                        >
-                        <em  class="h3">I JUST WANT TO READ</em>
+                        <button type="submit" class="btn btn-warning btn-lg btn-block" name="no_enter" value="no">
+                            <em  class="h3">I JUST WANT TO READ</em>
                         </button>
                     </div>
                     <div class="col-sm-4"></div>
                 </div>
                 </form>
-
         </header>
     
         <section class="page-section portfolio" id="portfolio">
@@ -155,7 +143,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book1.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.0.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -164,53 +152,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/themartian.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book1.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book1.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book1.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book1.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book1.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book1.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book1.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book1.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book1.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.0.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.0.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.0.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.0.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.0.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.0.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.0.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -221,7 +186,8 @@
                 </div>
             </div>        
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal1Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
@@ -230,7 +196,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book1.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.1.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -239,53 +205,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/book-cover-To-Kill-a-Mockingbird.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book2.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book2.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book2.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book2.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book2.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book2.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book2.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book2.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book2.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.1.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.1.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.1.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.1.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.1.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.1.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.1.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -296,7 +239,8 @@
                 </div>
             </div>        
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+
+        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal2Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
@@ -305,7 +249,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book3.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.2.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -314,53 +258,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/Don-Quixote.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book3.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book3.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book3.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book3.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book3.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book3.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book3.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book3.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book3.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.2.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.2.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.2.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.2.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.2.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.2.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.2.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -371,7 +292,8 @@
                 </div>
             </div>        
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+
+        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal3Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
@@ -380,7 +302,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book4.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.3.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -389,53 +311,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/one-hundered-year-of-solidate.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book4.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book4.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book4.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book4.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book4.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book4.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book4.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book4.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book4.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.3.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.3.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.3.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.3.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.3.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.3.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.3.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -446,7 +345,8 @@
                 </div>
             </div>        
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+
+        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal4Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
@@ -455,7 +355,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book5.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.4.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -464,53 +364,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-color-purple.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book5.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book5.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book5.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book5.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book5.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book5.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book5.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book5.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book5.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.4.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.4.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.4.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.4.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.4.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.4.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.4.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -521,7 +398,8 @@
                 </div>
             </div>        
         </div>
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal0Label" aria-hidden="true">
+
+        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-labelledby="#portfolioModal5Label" aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
                 <div class="modal-content">
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><svg class="svg-inline--fa fa-times fa-w-11" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times"></i> --></span></button>
@@ -530,7 +408,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-8">
                                     <!-- Portfolio Modal - Title-->
-                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{book6.name}}</h2>
+                                    <h2 class="portfolio-modal-title text-secondary mb-0">{{books.5.title}}</h2>
                                     <!-- Icon Divider-->
                                     <div class="divider-custom">
                                         <div class="divider-custom-line"></div>
@@ -539,53 +417,30 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src={% static 'img/Books/the-great-getsbay.jpg'%} alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <p class="mb-5">{{book6.description}}</p>
+                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
 
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
-                            
-                                            <a href="#" class="list-group-item list-group-item-action">
-                                            <strong class=""> Book Name:</strong> {{book6.name}}</a
-                                            >
-                                        
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-success"
-                                            >
-                                            <strong> Book Writer: </strong>{{book6.writer}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book Type:</strong> {{book6.genres}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-info"
-                                            >
-                                            <strong>Book Publisher:</strong>{{book6.publisher}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-warning"
-                                            ><strong>Publish Year: </strong>{{book6.pub_year}}</a
-                                            >
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-danger"
-                                            ><strong>Number Of Pages: </strong>{{book6.page_num}}</a
-                                            >
-                                            <a
-                                            id="change_stars"
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-primary"
-                                            ><strong>Book Rating:</strong> {{book6.rating}} Stars
-                                            </a>
-                                            <a
-                                            href="#"
-                                            class="list-group-item list-group-item-action list-group-item-secondary"
-                                            ><strong>Book ISBN:</strong> {{book6.isbn}}</a
-                                            >
+                                            <a class="list-group-item list-group-item-action">
+                                            <strong class=""> Book Name:</strong> {{books.5.title}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-success">
+                                            <strong> Book Writer: </strong>{{books.5.writer}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book Type:</strong> {{books.5.genres}}</a>
+                                           
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-danger">
+                                            <strong>Number Of Pages: </strong>{{books.5.page_num}}</a>
+                                            
+                                            <a class="list-group-item list-group-item-action list-group-item-warning">
+                                            <strong>Publish Year: </strong>{{books.5.pub_year}}</a>
+
+                                            <a id="change_stars" class="list-group-item list-group-item-action list-group-item-primary">
+                                            <strong>Book Rating:</strong> {{books.5.rating}} Stars</a>
+                                            <a class="list-group-item list-group-item-action list-group-item-secondary">
+                                            <strong>Book ISBN:</strong> {{books.5.isbn}}</a>
                                         </div>
                                         </div><br>
                                     <button class="btn btn-primary" href="#" data-dismiss="modal"><svg class="svg-inline--fa fa-times fa-w-11 fa-fw" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512" data-fa-i2svg=""><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg><!-- <i class="fas fa-times fa-fw"></i> -->Close Window</button>
@@ -596,7 +451,6 @@
                 </div>
             </div>        
         </div>
-
 
         <section class="page-section bg-primary text-white mb-0" id="about">
             <div class="container">
@@ -686,9 +540,6 @@
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
-        <script src="assets/mail/jqBootstrapValidation.js"></script>
-        <script src="assets/mail/contact_me.js"></script>
         <!-- Core theme JS-->
         <script src={% static 'js/scripts.js'%}></script>
 
