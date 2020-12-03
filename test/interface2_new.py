@@ -6,13 +6,9 @@ import random
 def group(books, bt):
     gk = books.groupby('Genres')
     df4 = gk.get_group(bt)
-
     df5 = df4.groupby('average_rating')
-
     max_rating = max(df5.average_rating)
-
     df6 = df5.get_group(max_rating[0])
-
     for x in range(4):
         print(df6.title.values[x])
         print(df6.authors.values[x])

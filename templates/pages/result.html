@@ -130,7 +130,7 @@
           <div class="col-sm-1"></div>
           <div class="col-sm-10" class="h5" class="text-center" class="list-group">
             <li class="list-group-item list-group-item-action">
-              <img src={% static 'img/Books/themartian.jpg' %} style="display:block;" width="100%" height="100%"  alt=""> </li
+              <img src="{{ books.0.image_url }}" style="display:block;" width="100%" height="100%"  alt=""> </li
             >
             <a  class="list-group-item list-group-item-action">
               <strong> Book Name:</strong>{{ books.0.title }}
@@ -140,7 +140,7 @@
               
               class="list-group-item list-group-item-action list-group-item-success"
             >
-              <strong> Book Writer: </strong>{{books.0.author}}</a
+              <strong> Book Writer: </strong>{{books.0.writer}}</a
             >
             <a
         
@@ -188,7 +188,7 @@
                     <div class="col-sm-2"></div>
                     <div style="margin-bottom: 4rem;" class="col-sm-8" class="h5" class="text-center" class="list-group">
                       <li class="list-group-item list-group-item-action">
-                        <img src={% static 'img/Books/themartian.jpg' %} style="display:block;" width="100%" height="100%"  alt=""> </li
+                        <img src="{{ book.image_url }}" style="display:block;" width="100%" height="100%"  alt=""> </li
                       >
                       <a  class="list-group-item list-group-item-action">
                         <strong> Book Name:</strong>{{ book.title }}
@@ -196,7 +196,7 @@
                       >
                       <a 
                         class="list-group-item list-group-item-action list-group-item-success"
-                      ><strong> Book Writer: </strong>{{book.author}}</a
+                      ><strong> Book Writer: </strong>{{book.writer}}</a
                       >
                       <a
                         class="list-group-item list-group-item-action list-group-item-secondary"

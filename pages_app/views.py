@@ -2,45 +2,54 @@ from django.shortcuts import render
 import pandas as pd
 from pages_app.models import BookClass, OneBook
 
-
 # group function used in >>>>
-def group(books, bt, index):
-    if bt != "NONE":
-        gk = books.groupby('Genres')
-        df4 = gk.get_group(bt)
+from pages_app.pandas_postgres import get_books_data_frame
 
-        df5 = df4.groupby('average_rating')
-        max_rating = max(df5.average_rating)
-        df6 = df5.get_group(max_rating[0])
-        dico = {'title': df6.title.values[index], 'authors': df6.authors.values[index],
-                'genres': df6.Genres.values[index], 'page_num': df6.books_count.values[index],
-                'pub_year': df6.original_publication_year.values[index], 'rating': df6.average_rating.values[index],
-                'image_url': df6.image_url.values[index], 'isbn': df6.isbn.values[index]}
-        return dico
-        # our home page view
+
+def group(books, bt):
+    index = 0;
+    book_list = []
+    for book_type in bt:
+        if book_type != "NONE":
+            gk = books.groupby('genres')
+            df4 = gk.get_group(book_type)
+            df5 = df4.groupby('rating')
+            max_rating = max(df5.rating)
+            df6 = df5.get_group(max_rating[0])
+
+            book_obj = OneBook()
+            book_obj.title = df6.title.values[index]
+            book_obj.writer = df6.writer.values[index]
+            book_obj.genres = df6.genres.values[index]
+            book_obj.page_num = df6.page_num.values[index]
+            book_obj.pub_year = df6.pub_year.values[index]
+            book_obj.rating = df6.rating.values[index]
+            book_obj.image_url = df6.image_url.values[index].lower()
+            book_obj.isbn = df6.isbn.values[index]
+            book_list.append(book_obj)
+            index += 1
+
+    return book_list
 
 
 def group2(books, bt):
-
-    gk = books.groupby('Genres')
+    gk = books.groupby('genres')
     df4 = gk.get_group(bt)
-    df5 = df4.groupby('average_rating')
-    max_rating = max(df5.average_rating)
+    df5 = df4.groupby('rating')
+    max_rating = max(df5.rating)
     df6 = df5.get_group(max_rating[0])
-
     book_list = []
     for x in range(4):
         book_obj = OneBook()
         book_obj.title = df6.title.values[x]
-        book_obj.author = df6.authors.values[x]
-        book_obj.genres = df6.Genres.values[x]
-        book_obj.page_num = df6.books_count.values[x]
-        book_obj.pub_year = df6.original_publication_year.values[x]
-        book_obj.rating = df6.average_rating.values[x]
-        book_obj.image_url = df6.image_url.values[x]
+        book_obj.writer = df6.writer.values[x]
+        book_obj.genres = df6.genres.values[x]
+        book_obj.page_num = df6.page_num.values[x]
+        book_obj.pub_year = df6.pub_year.values[x]
+        book_obj.rating = df6.rating.values[x]
+        book_obj.image_url = df6.image_url.values[x].lower()
         book_obj.isbn = df6.isbn.values[x]
         book_list.append(book_obj)
-
     return book_list
 
 
@@ -52,7 +61,20 @@ def login(request):
 # home page function renders index.html and returns response
 def home(request):
     books = BookClass.objects.all().order_by('-id')[:6]
-    return render(request, 'pages/index.html', {'books': books})
+
+    book = []
+    for i in range(6):
+        book_obj = OneBook()
+        book_obj.title = books[i].title
+        book_obj.writer = books[i].writer
+        book_obj.genres = books[i].genres
+        book_obj.page_num = books[i].page_num
+        book_obj.pub_year = books[i].pub_year
+        book_obj.rating = books[i].rating
+        book_obj.image_url = books[i].image_url
+        book_obj.isbn = books[i].isbn
+        book.append(book_obj)
+    return render(request, 'pages/index.html', {'book': book})
 
 
 # find out user choise and redirect to relevant page.
@@ -68,139 +90,51 @@ def user_choise(request):
 def result1(request):
     books = pd.read_csv("bookworm_data.csv")
 
-    if 'book1_name' in request.POST:
-        bn = request.POST['book1_name'].upper()
-    else:
-        bn = ""
+    # books = get_books_data_frame()
+
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
     else:
         bt = ""
-
-    if 'book2_name' in request.POST:
-        bn2 = request.POST['book2_name'].upper()
-    else:
-        bn2 = ""
     if 'book1_type' in request.POST:
         bt2 = request.POST['book2_type'].upper()
     else:
         bt2 = ""
-
-    if 'book3_name' in request.POST:
-        bn3 = request.POST['book3_name'].upper()
-    else:
-        bn3 = ""
     if 'book3_type' in request.POST:
         bt3 = request.POST['book3_type'].upper()
     else:
         bt3 = ""
-
-    if 'book4_name' in request.POST:
-        bn4 = request.POST['book4_name'].upper()
-    else:
-        bn4 = ""
     if 'book4_type' in request.POST:
         bt4 = request.POST['book4_type'].upper()
     else:
         bt4 = ""
-
-    if 'book5_name' in request.POST:
-        bn5 = request.POST['book5_name'].upper()
-    else:
-        bn5 = ""
     if 'book5_type' in request.POST:
         bt5 = request.POST['book5_type'].upper()
     else:
         bt5 = ""
 
-    books = books.loc[:, ["title", "authors", "isbn",
-                          "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
+    books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-
-    bt.upper()
-    bt2.upper()
-    bt3.upper()
-    bt4.upper()
-    bt5.upper()
+    book_types = []
 
     if bt == "NONE" and bt2 == "NONE" and bt3 == "NONE" and bt4 == "NONE" and bt5 == "NONE":
         return render(request, 'pages/NameError.html')
 
-    book1 = group(books, bt, 0)
-    book2 = group(books, bt2, 1)
-    book3 = group(books, bt3, 2)
-    book4 = group(books, bt4, 3)
-    book5 = group(books, bt5, 4)
-    books = []
+    book_types.append(bt)
+    book_types.append(bt2)
+    book_types.append(bt3)
+    book_types.append(bt4)
+    book_types.append(bt5)
+    book = group(books, book_types)
 
-    if bt != "NONE":
-        b1 = OneBook()
-        b1.title = book1['title']
-        b1.author = book1['authors']
-        b1.genres = book1['genres']
-        b1.page_num = book1['page_num']
-        b1.pub_year = book1['pub_year']
-        b1.rating = book1['rating']
-        b1.image_url = book1['image_url']
-        b1.isbn = book1['isbn']
-        books.append(b1)
-
-    if bt2 != "NONE":
-        b2 = OneBook()
-        b2.title = book2['title']
-        b2.author = book2['authors']
-        b2.genres = book2['genres']
-        b2.page_num = book2['page_num']
-        b2.pub_year = book2['pub_year']
-        b2.rating = book2['rating']
-        b2.image_url = book2['image_url']
-        b2.isbn = book2['isbn']
-        books.append(b2)
-
-    if bt3 != "NONE":
-        b3 = OneBook()
-        b3.title = book3['title']
-        b3.author = book3['authors']
-        b3.genres = book3['genres']
-        b3.page_num = book3['page_num']
-        b3.pub_year = book3['pub_year']
-        b3.rating = book3['rating']
-        b3.image_url = book3['image_url']
-        b3.isbn = book3['isbn']
-        books.append(b3)
-
-    if bt4 != "NONE":
-        b4 = OneBook()
-        b4.title = book4['title']
-        b4.author = book4['authors']
-        b4.genres = book4['genres']
-        b4.page_num = book4['page_num']
-        b4.pub_year = book4['pub_year']
-        b4.rating = book4['rating']
-        b4.image_url = book4['image_url']
-        b4.isbn = book4['isbn']
-        books.append(b4)
-
-    if bt5 != "NONE":
-        b5 = OneBook()
-        b5.title = book5['title']
-        b5.author = book5['authors']
-        b5.genres = book5['genres']
-        b5.page_num = book5['page_num']
-        b5.pub_year = book5['pub_year']
-        b5.rating = book5['rating']
-        b5.image_url = book5['image_url']
-        b5.isbn = book5['isbn']
-        books.append(b5)
-
-    return render(request, 'pages/result.html', {'books': books})
-
+    return render(request, 'pages/result.html', {'books': book})
 
 def result2(request):
     books = pd.read_csv("bookworm_data.csv")
+    # books = get_books_data_frame()
 
-    books = books.loc[:, ["title", "authors", "isbn",
-                          "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
+    books = books.loc[:, ["title", "writer", "isbn",
+                          "page_num", "pub_year", "rating", "image_url", "genres"]]
 
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
 

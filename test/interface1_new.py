@@ -35,8 +35,8 @@ books = books.loc[:, ["title", "authors", "isbn",
                       "books_count", "original_publication_year", "average_rating", "image_url", "Genres"]]
 
 books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-
-book_types = [" ", " ", " ", " ", " "]
+" ", " ", " ", " ", " "
+book_types = []
 
 # bn = str(input("Enter 1. book's name: ")).upper()
 bt = str(input("Enter 1. book's type: ")).upper()
