@@ -29,9 +29,6 @@ def group(books, bt):
             book_obj.image_url = df6.image_url.values[index].lower()
             book_obj.isbn = df6.isbn.values[index]
             book_list.append(book_obj)
-
-            # print(book_obj.title + " ," + book_obj.writer + " ," + book_obj.genres + " ," +
-            #       str(book_obj.page_num))
             index += 1
 
     return book_list
@@ -68,15 +65,16 @@ def home(request):
     # books = BookClass.objects.all().order_by('-id')[:]
     books = get_df()
     book = []
+    tempo = []
     for i in range(6):
         flag = False
         while not flag:
-            rand_num = list(range(1500))
+            rand_num = list(range(len(books)))
             random.shuffle(rand_num)
             temp = rand_num.pop()
-            if books.rating.values[temp] == 5:
+            if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
                 flag = True
-
+            tempo.append(books.id.values[temp])
         book_obj = OneBook()
         book_obj.title = books.title.values[temp]
         book_obj.writer = books.writer.values[temp]
@@ -94,14 +92,15 @@ def home(request):
 def user_choise(request):
     books = get_df()
     book = []
+    tempo = []
     if 'yes_enter' in request.POST:
         for i in range(6):
             flag = False
             while not flag:
-                rand_num = list(range(1500))
+                rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5:
+                if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()
@@ -119,10 +118,10 @@ def user_choise(request):
         for i in range(6):
             flag = False
             while not flag:
-                rand_num = list(range(1500))
+                rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5:
+                if books.rating.values[temp] == 5  and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()

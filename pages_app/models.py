@@ -9,7 +9,7 @@ class BookClass(models.Model):
     page_num = models.IntegerField(default=0)
     pub_year = models.IntegerField(default=0)
     rating = models.IntegerField(default=0)
-    isbn = models.CharField(max_length=100, default="", blank=False)
+    isbn = models.CharField(max_length=1000, default="", blank=False)
     image_url = models.TextField(default="", blank=False)
 
     def __str__(self):
