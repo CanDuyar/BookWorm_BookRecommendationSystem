@@ -1,0 +1,190 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/all.css' %}" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}" />
+    <!-- Custom -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <!--Lightbox -->
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}" />
+    <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
+    <link href={% static 'css/styles.css'%} rel="stylesheet">
+    <!-- Fonts CSS-->
+    <link rel="stylesheet" href={% static 'css/heading.css'%}>
+    <link rel="stylesheet" href={% static 'css/body.css'%}>
+    <title>Result - Web App</title>
+
+    <style>
+      body{
+        background-color:rgb(34, 46, 58);
+      }
+        .loading {
+        position: fixed;
+        margin: auto;
+        width: 100%;
+        height: 100%;
+        -webkit-animation: background 5s ease infinite;
+        animation: background 5s ease infinite;
+      }
+      .loading .loadingWrapper {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .loading .loadingWrapper #loading {
+        margin: auto;
+        height: 100px;
+        width: 100px;
+        border: transparent;
+        border-top: 3px solid #F3F58F;
+        border-radius: 50%;
+        -webkit-animation: round 2s linear infinite;
+        animation: round 2s linear infinite;
+      }
+      .loading .loadingWrapper h1 {
+        color: #555555;
+        position: relative;
+        margin: auto;
+        top: 50%;
+      }
+
+      @-webkit-keyframes round {
+        from {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes round {
+        from {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        to {
+          -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+        }
+      }
+      @-webkit-keyframes backGround {
+        0% {
+          background-color: #222222;
+        }
+        50% {
+          background-color: #555555;
+        }
+        75% {
+          background-color: #444444;
+        }
+        100% {
+          background-color: #111111;
+        }
+      }
+      @keyframes backGround {
+        0% {
+          background-color: #222222;
+        }
+        50% {
+          background-color: #555555;
+        }
+        75% {
+          background-color: #444444;
+        }
+        100% {
+          background-color: #111111;
+        }
+      }
+    </style>
+  </head>
+  <body onload="Function()" >
+    
+    <div class="loading" id="predicting_id">
+      <div class="loadingWrapper">
+        <div id="loading"> </div>
+        <h1>Searching For Books... <span style='font-size:2rem;'>&#128578;</span></h1>
+      </div>
+    </div>
+    
+    <div class="container-fluid" id="main_content" style="display: none;">
+
+      <div class="container" id="page-top">
+        <section class="page-section portfolio" id="portfolio">
+          <div class="container">
+              <!-- Portfolio Section Heading-->
+              <div class="text-center">
+                  <h2 class="page-section-heading text-danger mb-0 d-inline-block"><strong><em class="text-warning">{{books.0.genres}}</em></strong> TYPES OF BOOKS</h2>
+              </div>
+              <br>
+              <div class="row">
+                {% if books %}
+                  {% for book in books %}
+
+                    <div class="col-sm-4" class="card-deck">
+                        <div style="margin-bottom: 1rem;" class="card">
+                            <img style='height: 15em; width: 100%; object-fit: inherit' class="card-img-top" src="{{ book.image_url }}" alt="">
+                          <div  class="card-footer ">
+                            <small class="text-dark"><strong>Book Name: </strong>{{ book.title }}</small>
+                          </div>
+                          <div class="card-footer list-group-item-secondary">
+                            <small class="text-dark"><strong>Book Writer: {{book.writer}}</strong></small>
+                          </div>
+                          <div class="card-footer list-group-item-danger">
+                            <small class="text-dark"><strong>Book Type: </strong> {{book.genres}}</small>
+                          </div>
+                          <div class="card-footer  list-group-item-warning">
+                            <small class="text-dark"><strong>Number Of Pages: </strong>{{book.page_num}}</small>
+                          </div>
+                          <div class="card-footer list-group-item-info">
+                            <small class="text-dark"><strong>Publish Year: </strong>{{book.pub_year}}</small>
+                          </div>
+                          <div class="card-footer list-group-item-success">
+                            <small class="text-dark"><strong>Book Rating: </strong>{{book.rating}}</small>
+                          </div>
+                          <div class="card-footer">
+                            <small class="text-dark"><strong>Book ISBN: </strong> {{book.isbn}}</small>
+                          </div>
+                        </div>
+                    </div>
+                  {% endfor %}
+                {% else %}
+                    <h5>No Book To Display !!!</h5>
+                {% endif %}
+              </div>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
+    <script src="{% static 'js/bootstrap.bundle.min.js ' %}"></script>
+    <script src="{% static 'js/main.js' %} "></script>
+    <script src="{% static 'js/lightbox.min.js' %}"></script>
+
+    <script type="text/javascript">
+      function Function() {
+          setTimeout(call_me, 3000);
+      }
+    
+      function call_me(){
+        var predicting_id = document.getElementById('predicting_id');
+        var main_content = document.getElementById('main_content');
+
+        predicting_id.style.display = "none";
+        main_content.style.display = "inline-table";
+      }
+      
+    </script>
+  </body>
+</html>

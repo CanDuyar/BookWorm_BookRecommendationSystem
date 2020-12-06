@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>  
+<html lang="en" class="fontawesome-i2svg-active fontawesome-i2svg-complete">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+       
+        <link href={% static 'css/styles.css'%} rel="stylesheet">
+        <link rel="stylesheet" href={% static 'css/body.css'%}>
+        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
+        <title>Search_Books - Book Worm</title>
+    </head>
+    <body style="background-color:dimgray ;" class="container" id="page-top">
+
+        <header>
+            <br><br>
+            <div>
+                <form style="text-align: center" action="search_result" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-sm 2"></div>
+                            <div class="col-sm-8">
+                                <select class="form-control" name="book_type" id="book_type">
+                                <option value="" disabled selected hidden>Choose A Book Type</option>
+                                <option value="history">History</option>
+                                <option value="crime">Crime</option>
+                                <option value="horror">Horror</option>
+                                <option value="biography">Briography</option>
+                                <option value="classic">Classic</option>
+                                <option value="science">Science</option>
+                                <option value="textbook">Adventure</option>
+                                <option value="sciencefiction">Science Fiction</option>
+                                <option value="youngadult">Young Adult</option>
+                                <option value="travel">Travel</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div> 
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm 4"></div>
+                        <div class="col-sm-4">
+                            <button type="submit" class="btn btn-dark btn-lg btn-block" name="search" value="no">
+                                <em  class="h3">SEARCH</em>
+                            </button>
+                        </div>
+                        <div class="col-sm-4"></div>
+                    </div>
+                </form>
+            </div>
+        </header>
+
+        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+        <div class="scroll-to-top d-lg-none position-fixed" style="display: block;"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i class="fa fa-chevron-up"></i> --></a></div>
+        
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Core theme JS-->
+        <script src={% static 'js/scripts.js'%}></script>
+    </body>
+</html>

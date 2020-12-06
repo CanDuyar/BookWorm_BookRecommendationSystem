@@ -1,3 +1,5 @@
+from random import randrange, random
+import random
 from django.shortcuts import render
 import pandas as pd
 from pages_app.models import BookClass, OneBook
@@ -28,8 +30,8 @@ def group(books, bt):
             book_obj.isbn = df6.isbn.values[index]
             book_list.append(book_obj)
 
-            print(book_obj.title + " ," + book_obj.writer + " ," + book_obj.genres + " ," +
-                  str(book_obj.page_num))
+            # print(book_obj.title + " ," + book_obj.writer + " ," + book_obj.genres + " ," +
+            #       str(book_obj.page_num))
             index += 1
 
     return book_list
@@ -63,61 +65,85 @@ def login(request):
 
 # home page function renders index.html and returns response
 def home(request):
-    books = BookClass.objects.all().order_by('-id')[100:106]
-
+    # books = BookClass.objects.all().order_by('-id')[:]
+    books = get_df()
     book = []
     for i in range(6):
+        flag = False
+        while not flag:
+            rand_num = list(range(1500))
+            random.shuffle(rand_num)
+            temp = rand_num.pop()
+            if books.rating.values[temp] == 5:
+                flag = True
+
         book_obj = OneBook()
-        book_obj.title = books[i].title
-        book_obj.writer = books[i].writer
-        book_obj.genres = books[i].genres
-        book_obj.page_num = books[i].page_num
-        book_obj.pub_year = books[i].pub_year
-        book_obj.rating = books[i].rating
-        book_obj.image_url = books[i].image_url.lower()
-        book_obj.isbn = books[i].isbn
+        book_obj.title = books.title.values[temp]
+        book_obj.writer = books.writer.values[temp]
+        book_obj.genres = books.genres.values[temp]
+        book_obj.page_num = books.page_num.values[temp]
+        book_obj.pub_year = books.pub_year.values[temp]
+        book_obj.rating = books.rating.values[temp]
+        book_obj.image_url = books.image_url.values[temp].lower()
+        book_obj.isbn = books.isbn.values[temp]
         book.append(book_obj)
     return render(request, 'pages/index.html', {'books': book})
 
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
-    books = BookClass.objects.all().order_by('-id')[10:16]
-    books1 = BookClass.objects.all().order_by('-id')[30:36]
-
+    books = get_df()
     book = []
     if 'yes_enter' in request.POST:
         for i in range(6):
+            flag = False
+            while not flag:
+                rand_num = list(range(1500))
+                random.shuffle(rand_num)
+                temp = rand_num.pop()
+                if books.rating.values[temp] == 5:
+                    flag = True
+
             book_obj = OneBook()
-            book_obj.title = books[i].title
-            book_obj.writer = books[i].writer
-            book_obj.genres = books[i].genres
-            book_obj.page_num = books[i].page_num
-            book_obj.pub_year = books[i].pub_year
-            book_obj.rating = books[i].rating
-            book_obj.image_url = books[i].image_url.lower()
-            book_obj.isbn = books[i].isbn
+            book_obj.title = books.title.values[temp]
+            book_obj.writer = books.writer.values[temp]
+            book_obj.genres = books.genres.values[temp]
+            book_obj.page_num = books.page_num.values[temp]
+            book_obj.pub_year = books.pub_year.values[temp]
+            book_obj.rating = books.rating.values[temp]
+            book_obj.image_url = books.image_url.values[temp].lower()
+            book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
         return render(request, 'pages/inter_book.html', {'books': book})
     elif 'no_enter' in request.POST:
         for i in range(6):
+            flag = False
+            while not flag:
+                rand_num = list(range(1500))
+                random.shuffle(rand_num)
+                temp = rand_num.pop()
+                if books.rating.values[temp] == 5:
+                    flag = True
+
             book_obj = OneBook()
-            book_obj.title = books1[i].title
-            book_obj.writer = books1[i].writer
-            book_obj.genres = books1[i].genres
-            book_obj.page_num = books1[i].page_num
-            book_obj.pub_year = books1[i].pub_year
-            book_obj.rating = books1[i].rating
-            book_obj.image_url = books1[i].image_url.lower()
-            book_obj.isbn = books1[i].isbn
+            book_obj.title = books.title.values[temp]
+            book_obj.writer = books.writer.values[temp]
+            book_obj.genres = books.genres.values[temp]
+            book_obj.page_num = books.page_num.values[temp]
+            book_obj.pub_year = books.pub_year.values[temp]
+            book_obj.rating = books.rating.values[temp]
+            book_obj.image_url = books.image_url.values[temp].lower()
+            book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
         return render(request, 'pages/not_inter_book.html', {'books': book})
+    elif 'search' in request.POST:
+        return render(request, 'pages/search.html')
 
 
 # our user_chose page view
 def result1(request):
-    books = pd.read_csv("bookworm_data.csv")
-    # books = get_df()
+    # books = pd.read_csv("bookworm_data.csv")
+    books = get_df()
 
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
@@ -155,8 +181,8 @@ def result1(request):
 
 
 def result2(request):
-    books = pd.read_csv("bookworm_data.csv")
-    # books = get_df()
+    # books = pd.read_csv("bookworm_data.csv")
+    books = get_df()
 
     books = books.loc[:, ["title", "writer", "isbn",
                           "page_num", "pub_year", "rating", "image_url", "genres"]]
@@ -189,3 +215,31 @@ def result2(request):
     book_list.append(temp[2])
     book_list.append(temp[3])
     return render(request, 'pages/result.html', {'books': book_list})
+
+
+def search_result(request):
+    if 'book_type' in request.POST:
+        bt = request.POST['book_type'].upper()
+    else:
+        bt = ""
+    print("book type is: "+bt)
+    if bt == "":
+        return render(request, 'pages/search_error.html')
+    else:
+        df = get_df()
+        book = []
+        for i in range(len(df)):
+            if df.genres.values[i] == bt:
+                book_obj = OneBook()
+                book_obj.title = df.title.values[i]
+                book_obj.writer = df.writer.values[i]
+                book_obj.genres = df.genres.values[i]
+                if book_obj.genres == "TEXTBOOK":
+                    book_obj.genres = "ADVENTURE"
+                book_obj.page_num = df.page_num.values[i]
+                book_obj.pub_year = df.pub_year.values[i]
+                book_obj.rating = df.rating.values[i]
+                book_obj.image_url = df.image_url.values[i].lower()
+                book_obj.isbn = df.isbn.values[i]
+                book.append(book_obj)
+        return render(request, 'pages/search_result.html',{'books': book})

@@ -27,14 +27,16 @@ engine_string = "postgresql+psycopg2://{user}:{password}@{host}:{port}/{database
 engine = create_engine(engine_string)
 
 
-
-
 def get_df():
+
     df = pd.read_sql_table('pages_app_bookclass', engine)
+    df_shuffled = df.sample(frac=1).reset_index(drop=True)
+    # df['isbn'] = df['isbn'].apply(str)
+
     # l = len(df)
     # for i in range(l):
-    #     print(i)
+    #     print(i,end=" :")
     #     print(df.values[i])
-    #     print()
-
-    return df
+    #     print("___________________________________")
+    #
+    return df_shuffled
