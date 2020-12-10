@@ -7,30 +7,54 @@
         <meta name="description" content="main pages BookWork">
         <meta name="author" content="Ashraf Yawar">
        
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <link href={% static 'css/styles.css'%} rel="stylesheet">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}" />
         <link rel="stylesheet" href={% static 'css/heading.css'%}>
         <link rel="stylesheet" href={% static 'css/body.css'%}>
-        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
-        <link rel="stylesheet" href={% static 'css/all.css'%}>
+
         <link rel="stylesheet" href={% static 'js/all.js'%}>
         <link rel="stylesheet" href={% static 'js/brand.js'%}>
         <link rel="stylesheet" href={% static 'js/solid.js'%}>
         <link rel="stylesheet" href={% static 'js/fontawesome.js'%}>
 
+        <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
         <title>Home - Book Worm</title>
+        <style>body{background-color: #2c2f33;}
+        </style>
     </head>
 
-    <body onload="Function()" style="overflow-x: hidden;" id="page-top" >
+    <body onload="change_display_type()" style="overflow-x: hidden;"  id="page-top">
         
-        <div class="loading" id="predicting_id">
-            <div class="loadingWrapper">
-              <div id="loading"> </div>
-              <h1>loading... <span style='font-size:2rem;'>&#128578;</span></h1>
+        <div class="book" id="loader_div" style="display: block;">
+            <div class="inner">
+                <div class="left"></div>
+                <div class="middle"></div>
+                <div class="right"></div>
             </div>
+            <ul>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <a class="dribbble"><img src={% static 'img/logo.png' %} style="height: 4rem; width: 12rem;" /></a>
         </div>
-        <div >
+
+        <div class="container-fluid" id="main_content" style="display: none;">
             <nav class="navbar navbar-expand-lg bg-danger fixed-top navbar-shrink" id="mainNav">
                 <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"> <img src={% static 'img/logo.png'%} alt="logo"></a>
                     <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></button>
@@ -50,11 +74,12 @@
             <header class="masthead bg-alarm text-white text-center">
                 <div class="container d-flex align-items-center flex-column">
                     <!-- Masthead Avatar Image-->
-                    <img class="masthead-avatar mb-5" src={% static 'img/Book-icon.png' %} alt="">
+                    <img src="https://img.icons8.com/dusk/250/000000/book.png"/>
+                    <br><br>
                     <!-- Masthead Heading-->
-                    <h1 class="masthead-heading mb-0 text-danger">BOOK WORM&nbsp;</h1>
+                    <h1 class="masthead-heading mb-0 text-white">BOOK WORM&nbsp;</h1>
                     <!-- Masthead Subheading-->
-                    <p class=" text-danger pre-wrap masthead-subheading font-weight-light mb-0">We Find The Right Books For You  </p>
+                    <p class=" text-white pre-wrap masthead-subheading font-weight-light mb-0">We Find The Right Books For You !</p>
                 </div>
                 <br><br><br>
                 <div>
@@ -64,7 +89,7 @@
                         <div class="col-sm 4"></div>
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-warning btn-lg btn-block" name="yes_enter" value="yes">
-                                <em class="h3">OPTION 1</em> 
+                                <em class="h3">Already a <strong><em>Bookworm</em></strong> </em> 
                             </button>
                         </div>
                         <div class="col-sm-4"></div>
@@ -74,7 +99,7 @@
                         <div class="col-sm 4"></div>
                         <div class="col-sm-4">
                             <button type="submit" class="btn btn-warning btn-lg btn-block" name="no_enter" value="no">
-                                <em  class="h3">OPTION 2</em>
+                                <em  class="h3">Want To Be a <strong><em>Bookworm</em></strong> </em>
                             </button>
                         </div>
                         <div class="col-sm-4"></div>
@@ -85,7 +110,7 @@
                     <div class="row">
                         <div class="col-sm 4"></div>
                         <div class="col-sm-4">
-                            <button type="submit" class="btn btn-dark btn-lg btn-block" name="search" value="no">
+                            <button type="submit" class="btn btn-primary btn-lg btn-block" name="search" value="no">
                                 <em  class="h3">SEARCH BY TYPE</em>
                             </button>
                         </div>
@@ -94,14 +119,14 @@
                     </form>
             </header>
             </div>
-            <section style="background-color: dimgray;" class="page-section portfolio" id="portfolio">
+            <section style="background-color: #2c2f33;" class="page-section portfolio" id="portfolio">
                 <div class="container">
                     <!-- Portfolio Section Heading-->
                     <div class="text-center">
-                        <h2 class="  text-warning page-section-heading text-secondary mb-0 d-inline-block">FEATURED BOOKS</h2>
+                        <h2 class="  text-white page-section-heading  mb-0 d-inline-block">FEATURED BOOKS</h2>
                     </div>
                     <!-- Icon Divider-->
-                    <div class="divider-custom">
+                    <div class="divider-custom divider-light">
                         <div class="divider-custom-line"></div>
                         <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
                         <div class="divider-custom-line"></div>
@@ -474,8 +499,7 @@
                 </div>        
             </div>
 
-
-            <section class="page-section bg-primary text-white mb-0" id="about">
+            <section style="background-color: #2c2f33;" class="page-section text-white mb-0" id="about">
                 <div class="container">
                     <!-- About Section Heading-->
                     <div class="text-center">
@@ -489,11 +513,15 @@
                     </div>
                     <!-- About Section Content-->
                     <div class="row">
-                        <div class="col-lg-4 ml-auto">
-                            <p class="pre-wrap lead">We are a team of passionate web developers and data scientists working on this project called Book Worm.</p>
+                        <div class="col-lg-2 mr-auto">
+                            <p class="pre-wrap lead"></p>
                         </div>
-                        <div class="col-lg-4 mr-auto">
-                            <p class="pre-wrap lead">we are planning to expand this project to help people to decide better what book to read next. Help Us To Make It Real.</p>
+                        <div class="col-lg-8 ml-auto">
+                            <p class="pre-wrap lead">We are a team of passionate web developers and data scientists working on this project called Book Worm. we are planning to expand this project to help people to decide better what book to read next. Help Us To Make It Real.</p>
+                       
+                        </div>
+                        <div class="col-lg-2 mr-auto">
+                            <p class="pre-wrap lead"></p>
                         </div>
                     </div>
                 </div>
@@ -503,10 +531,10 @@
                 <div class="container">
                     <!-- Contact Section Heading-->
                     <div class="text-center">
-                        <h2 class="page-section-heading text-secondary d-inline-block mb-0">CONTACT US</h2>
+                        <h2 class="page-section-heading text-white d-inline-block mb-0">CONTACT US</h2>
                     </div>
                     <!-- Icon Divider-->
-                    <div class="divider-custom">
+                    <div class="divider-custom divider-light">
                         <div class="divider-custom-line"></div>
                         <div class="divider-custom-icon"><svg class="svg-inline--fa fa-star fa-w-18" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="star" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" data-fa-i2svg=""><path fill="currentColor" d="M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"></path></svg><!-- <i class="fas fa-star"></i> --></div>
                         <div class="divider-custom-line"></div>
@@ -516,14 +544,14 @@
                         <div class="col-lg-4">
                             <div class="d-flex flex-column align-items-center">
                                 <div class="icon-contact mb-3"><svg class="svg-inline--fa fa-mobile-alt fa-w-10" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="mobile-alt" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" data-fa-i2svg=""><path fill="currentColor" d="M272 0H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h224c26.5 0 48-21.5 48-48V48c0-26.5-21.5-48-48-48zM160 480c-17.7 0-32-14.3-32-32s14.3-32 32-32 32 14.3 32 32-14.3 32-32 32zm112-108c0 6.6-5.4 12-12 12H60c-6.6 0-12-5.4-12-12V60c0-6.6 5.4-12 12-12h200c6.6 0 12 5.4 12 12v312z"></path></svg><!-- <i class="fas fa-mobile-alt"></i> --></div>
-                                <div class="text-muted"> Office Phone</div>
-                                <div class="lead font-weight-bold">(555) 555-5555</div>
+                                <div class="text-white"> Office Phone</div>
+                                <div class="lead font-weight-bold text-white">(555) 555-5555</div>
                             </div>
                         </div>
                         <div class="col-lg-4">
                             <div class="d-flex flex-column align-items-center">
                                 <div class="icon-contact mb-3"><svg class="svg-inline--fa fa-envelope fa-w-16" aria-hidden="true" focusable="false" data-prefix="far" data-icon="envelope" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"></path></svg><!-- <i class="far fa-envelope"></i> --></div>
-                                <div class="text-muted">Email</div><a class="lead font-weight-bold" href="mailto:name@example.com">bookwork2020@gmail.com</a>
+                                <div class="text-white">Email</div><a class="lead font-weight-bold" href="mailto:name@example.com">bookwork2020@gmail.com</a>
                             </div>
                         </div>
                     </div>
@@ -576,30 +604,43 @@
             <section class="copyright py-4 text-center text-white">
                 <div class="container"><small class="pre-wrap">Copyright © BookWorm.com.tr 2020 </small></div>
             </section>
+        
+            <div class="scroll-to-top d-lg-none position-fixed" style="display: block;">
+                <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top">
+                    <svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg="">
+                        <path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z">
+                        </path>
+                    </svg><!-- <i class="fa fa-chevron-up"></i> -->
+                </a>
+            </div>
         </div>
-        <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
-        <div class="scroll-to-top d-lg-none position-fixed" style="display: block;"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><svg class="svg-inline--fa fa-chevron-up fa-w-14" aria-hidden="true" focusable="false" data-prefix="fa" data-icon="chevron-up" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M240.971 130.524l194.343 194.343c9.373 9.373 9.373 24.569 0 33.941l-22.667 22.667c-9.357 9.357-24.522 9.375-33.901.04L224 227.495 69.255 381.516c-9.379 9.335-24.544 9.317-33.901-.04l-22.667-22.667c-9.373-9.373-9.373-24.569 0-33.941L207.03 130.525c9.372-9.373 24.568-9.373 33.941-.001z"></path></svg><!-- <i class="fa fa-chevron-up"></i> --></a></div>
-        <!-- Bootstrap core JS-->
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Core theme JS-->
         <script src={% static 'js/scripts.js'%}></script>
-        
-        <script type="text/javascript">
-            function Function() {
-                setTimeout(call_me, 3000);
+
+       <script type="text/javascript">
+            function disable_required(){
+                email = document.getElementById('inputEmail').required = false;
+                password = document.getElementById('inputPassword').required = false;
             }
-          
+
+            function change_display_type(){
+                setTimeout("call_me()",3000);
+            }
+
             function call_me(){
-              var predicting_id = document.getElementById('predicting_id');
-              var main_content = document.getElementById('main_content');
-      
-              predicting_id.style.display = "none";
-              main_content.style.display = "inline-table";
+                var loader_div = document.getElementById('loader_div');
+                var main_content = document.getElementById('main_content');
+
+                loader_div.style.display = "none";
+                main_content.style.display = "inline-table";
+                document.title = "Main - Book Worm"
             }
             
-          </script>
+        </script>
+
     </body>
 </html>

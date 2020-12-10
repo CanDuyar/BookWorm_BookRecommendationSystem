@@ -15,7 +15,7 @@
         <link rel="shortcut icon" href="{% static 'img/Book-icon.png'%}" type="image/x-icon">
         <title>Enter_Books - Book Worm</title>
     </head>
-    <body style="background-color:dimgray ;" class="container" id="page-top">
+    <body style="background-color:#2c2f33 ;" class="container" id="page-top">
         <nav class="navbar navbar-expand-lg bg-secondary fixed-top navbar-shrink" id="mainNav">
             <div class="container"><a class="navbar-brand js-scroll-trigger" href="#page-top"><img src={% static 'img/logo.png'%} alt="logo"></a>
                 <button class="navbar-toggler navbar-toggler-right font-weight-bold bg-primary text-white rounded collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu <svg class="svg-inline--fa fa-bars fa-w-14" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="bars" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M16 132h416c8.837 0 16-7.163 16-16V76c0-8.837-7.163-16-16-16H16C7.163 60 0 67.163 0 76v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16zm0 160h416c8.837 0 16-7.163 16-16v-40c0-8.837-7.163-16-16-16H16c-8.837 0-16 7.163-16 16v40c0 8.837 7.163 16 16 16z"></path></svg><!-- <i class="fas fa-bars"></i> --></button>
@@ -44,10 +44,10 @@
                                 <option value="history">History</option>
                                 <option value="crime">Crime</option>
                                 <option value="horror">Horror</option>
-                                <option value="biography">Briography</option>
+                                <option value="biography">Biography</option>
                                 <option value="classic">Classic</option>
                                 <option value="science">Science</option>
-                                <option value="textbook">Adventure</option>
+                                <option value="adventure">Adventure</option>
                                 <option value="sciencefiction">Science Fiction</option>
                                 <option value="youngadult">Young Adult</option>
                                 <option value="travel">Travel</option>
@@ -67,10 +67,10 @@
                                 <option value="history">History</option>
                                 <option value="crime">Crime</option>
                                 <option value="horror">Horror</option>
-                                <option value="biography">Briography</option>
+                                <option value="biography">Biography</option>
                                 <option value="classic">Classic</option>
                                 <option value="science">Science</option>
-                                <option value="textbook">Adventure</option>
+                                <option value="adventure">Adventure</option>
                                 <option value="sciencefiction">Science Fiction</option>
                                 <option value="youngadult">Young Adult</option>
                                 <option value="travel">Travel</option>
@@ -90,10 +90,10 @@
                                 <option value="history">History</option>
                                 <option value="crime">Crime</option>
                                 <option value="horror">Horror</option>
-                                <option value="biography">Briography</option>
+                                <option value="biography">Biography</option>
                                 <option value="classic">Classic</option>
                                 <option value="science">Science</option>
-                                <option value="textbook">Adventure</option>
+                                <option value="adventure">Adventure</option>
                                 <option value="sciencefiction">Science Fiction</option>
                                 <option value="youngadult">Young Adult</option>
                                 <option value="travel">Travel</option>
@@ -113,10 +113,10 @@
                                 <option value="history">History</option>
                                 <option value="crime">Crime</option>
                                 <option value="horror">Horror</option>
-                                <option value="biography">Briography</option>
+                                <option value="biography">Biography</option>
                                 <option value="classic">Classic</option>
                                 <option value="science">Science</option>
-                                <option value="textbook">Adventure</option>
+                                <option value="adventure">Adventure</option>
                                 <option value="sciencefiction">Science Fiction</option>
                                 <option value="youngadult">Young Adult</option>
                                 <option value="travel">Travel</option>
@@ -136,10 +136,10 @@
                                 <option value="history">History</option>
                                 <option value="crime">Crime</option>
                                 <option value="horror">Horror</option>
-                                <option value="biography">Briography</option>
+                                <option value="biography">Biography</option>
                                 <option value="classic">Classic</option>
                                 <option value="science">Science</option>
-                                <option value="textbook">Adventure</option>
+                                <option value="adventure">Adventure</option>
                                 <option value="sciencefiction">Science Fiction</option>
                                 <option value="youngadult">Young Adult</option>
                                 <option value="travel">Travel</option>
@@ -167,7 +167,7 @@
             <div class="container">
                 <!-- Portfolio Section Heading-->
                 <div class="text-center">
-                    <h2 class="page-section-heading text-secondary mb-0 d-inline-block">FEATURED BOOKS</h2>
+                    <h2 class="page-section-heading text-white mb-0 d-inline-block">FEATURED BOOKS</h2>
                 </div>
                 <!-- Icon Divider-->
                 <div class="divider-custom">
@@ -242,8 +242,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.0.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">
@@ -295,8 +293,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.1.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">
@@ -348,8 +344,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.2.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">
@@ -401,8 +395,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.3.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">
@@ -454,8 +446,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.4.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">
@@ -507,8 +497,6 @@
                                     </div>
                                     <!-- Portfolio Modal - Image--><img style='height: 30em; width: 100%; object-fit: inherit' src="{{ books.5.image_url }}" class="img-fluid rounded mb-5" alt="book_photo">
                                     <!-- Portfolio Modal - Text-->
-                                    <!-- <p class="mb-5">{{book1.description}}</p> -->
-
                                     <div class="row">
                                         <div class="col-sm-12" class="h5" class="text-center" class="list-group">
                                             <a class="list-group-item list-group-item-action">

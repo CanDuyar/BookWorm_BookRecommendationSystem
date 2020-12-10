@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages_app.apps.PagesAppConfig',
-    'users_app.apps.UsersAppConfig',
     'import_export',
 ]
 

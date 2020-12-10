@@ -56,11 +56,6 @@ def group2(books, bt):
 
 
 # home page function renders index.html and returns response
-def login(request):
-    return render(request, 'pages/login.html')
-
-
-# home page function renders index.html and returns response
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:]
     books = get_df()
@@ -221,12 +216,12 @@ def search_result(request):
         bt = request.POST['book_type'].upper()
     else:
         bt = ""
-    print("book type is: "+bt)
     if bt == "":
         return render(request, 'pages/search_error.html')
     else:
         df = get_df()
         book = []
+        counter = 1
         for i in range(len(df)):
             if df.genres.values[i] == bt:
                 book_obj = OneBook()
@@ -241,4 +236,8 @@ def search_result(request):
                 book_obj.image_url = df.image_url.values[i].lower()
                 book_obj.isbn = df.isbn.values[i]
                 book.append(book_obj)
+                if counter == 20:
+                    break
+                counter += 1
+
         return render(request, 'pages/search_result.html',{'books': book})
