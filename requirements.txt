@@ -5,6 +5,7 @@ atomicwrites==1.4.0
 attrs==20.2.0
 automium==0.2.6
 automium-web==0.1.1
+bower==0.0.0
 camelcase==0.2
 certifi==2020.11.8
 chardet==3.0.4
@@ -27,6 +28,7 @@ et-xmlfile==1.0.1
 false==0.1.0
 filelock==3.0.12
 Flask==1.1.2
+grunt==0.1.1
 gunicorn==20.0.4
 idna==2.10
 iniconfig==1.1.1
