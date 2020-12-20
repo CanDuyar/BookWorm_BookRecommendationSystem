@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages_app.apps.PagesAppConfig',
     'import_export',
-    'django_jenkins',
 ]
 
 MIDDLEWARE = [
