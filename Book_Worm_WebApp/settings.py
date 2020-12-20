@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'h9*&c(=+7w-xu$yd-z0fz7s^03j-@$=0crzto=&m*4$ta9zdh_'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['bookworm-project.herokuapp.com/','localhost']
+ALLOWED_HOSTS = ['bookworm-project.herokuapp.com/', 'localhost']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pages_app.apps.PagesAppConfig',
     'import_export',
+    'django_jenkins',
 ]
 
 MIDDLEWARE = [
