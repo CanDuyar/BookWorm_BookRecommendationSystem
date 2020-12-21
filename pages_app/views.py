@@ -81,7 +81,7 @@ def home(request):
     #     book_obj.isbn = books.isbn.values[temp]
     #     book.append(book_obj)
     # return render(request, 'pages/index.html', {'books': book})
-    return render(request,'pages/home.html')
+    return render(request,'pages/index.html')
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
