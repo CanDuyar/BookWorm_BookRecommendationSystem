@@ -58,7 +58,7 @@ def group2(books, bt):
 # home page function renders index.html and returns response
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:]
-    df = pd.read_csv("Data.csv")
+    df = pd.read_csv("Assets/Data.csv")
     books = df
     # books = get_df()
     book = []
@@ -86,7 +86,7 @@ def home(request):
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
-    df = pd.read_csv("Data.csv")
+    df = pd.read_csv("Assets/Data.csv")
     books = df
     # books = get_df()
 
@@ -140,8 +140,7 @@ def user_choise(request):
 
 # our user_chose page view
 def result1(request):
-
-    df = pd.read_csv("Data.csv")
+    df = pd.read_csv("Assets/Data.csv")
     books = df
     # books = get_df()
 
@@ -181,7 +180,7 @@ def result1(request):
 
 
 def result2(request):
-    df = pd.read_csv("Data.csv")
+    df = pd.read_csv("Assets/Data.csv")
     books = df
 
     # books = get_df()
@@ -227,7 +226,7 @@ def search_result(request):
         return render(request, 'pages/search_error.html')
     else:
 
-        df = pd.read_csv("Data.csv")
+        df = pd.read_csv("Assets/Data.csv")
         # df = get_df()
         book = []
         counter = 1
