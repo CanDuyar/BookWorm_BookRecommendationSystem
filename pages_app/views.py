@@ -58,30 +58,32 @@ def group2(books, bt):
 # home page function renders index.html and returns response
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:]
+    df = pd.read_csv("Data.csv")
+    books = df
     # books = get_df()
-    # book = []
-    # tempo = []
-    # for i in range(6):
-    #     flag = False
-    #     while not flag:
-    #         rand_num = list(range(len(books)))
-    #         random.shuffle(rand_num)
-    #         temp = rand_num.pop()
-    #         if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
-    #             flag = True
-    #         tempo.append(books.id.values[temp])
-    #     book_obj = OneBook()
-    #     book_obj.title = books.title.values[temp]
-    #     book_obj.writer = books.writer.values[temp]
-    #     book_obj.genres = books.genres.values[temp]
-    #     book_obj.page_num = books.page_num.values[temp]
-    #     book_obj.pub_year = books.pub_year.values[temp]
-    #     book_obj.rating = books.rating.values[temp]
-    #     book_obj.image_url = books.image_url.values[temp].lower()
-    #     book_obj.isbn = books.isbn.values[temp]
-    #     book.append(book_obj)
-    # return render(request, 'pages/index.html', {'books': book})
-    return render(request,'pages/index.html')
+    book = []
+    tempo = []
+    for i in range(6):
+        flag = False
+        while not flag:
+            rand_num = list(range(len(books)))
+            random.shuffle(rand_num)
+            temp = rand_num.pop()
+            if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
+                flag = True
+            tempo.append(books.id.values[temp])
+        book_obj = OneBook()
+        book_obj.title = books.title.values[temp]
+        book_obj.writer = books.writer.values[temp]
+        book_obj.genres = books.genres.values[temp]
+        book_obj.page_num = books.page_num.values[temp]
+        book_obj.pub_year = books.pub_year.values[temp]
+        book_obj.rating = books.rating.values[temp]
+        book_obj.image_url = books.image_url.values[temp].lower()
+        book_obj.isbn = books.isbn.values[temp]
+        book.append(book_obj)
+    return render(request, 'pages/index.html', {'books': book})
+    # return render(request,'pages/index.html')
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
