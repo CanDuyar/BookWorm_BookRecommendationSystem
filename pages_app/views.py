@@ -83,11 +83,13 @@ def home(request):
         book_obj.isbn = books.isbn.values[temp]
         book.append(book_obj)
     return render(request, 'pages/index.html', {'books': book})
-    # return render(request,'pages/index.html')
 
 # find out user choise and redirect to relevant page.
 def user_choise(request):
-    books = get_df()
+    df = pd.read_csv("Data.csv")
+    books = df
+    # books = get_df()
+
     book = []
     tempo = []
     if 'yes_enter' in request.POST:
@@ -138,8 +140,10 @@ def user_choise(request):
 
 # our user_chose page view
 def result1(request):
-    # books = pd.read_csv("bookworm_data.csv")
-    books = get_df()
+
+    df = pd.read_csv("Data.csv")
+    books = df
+    # books = get_df()
 
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
@@ -177,9 +181,10 @@ def result1(request):
 
 
 def result2(request):
-    # books = pd.read_csv("bookworm_data.csv")
-    books = get_df()
+    df = pd.read_csv("Data.csv")
+    books = df
 
+    # books = get_df()
     books = books.loc[:, ["title", "writer", "isbn",
                           "page_num", "pub_year", "rating", "image_url", "genres"]]
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
@@ -221,7 +226,9 @@ def search_result(request):
     if bt == "":
         return render(request, 'pages/search_error.html')
     else:
-        df = get_df()
+
+        df = pd.read_csv("Data.csv")
+        # df = get_df()
         book = []
         counter = 1
         for i in range(len(df)):
