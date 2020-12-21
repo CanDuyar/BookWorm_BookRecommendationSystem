@@ -1,7 +1,5 @@
 .github
-/Book_Worm_Virtual_Environment
 /Data
-data.csv
 db.sqlite3
 distribute_setup.py
 setup.py
