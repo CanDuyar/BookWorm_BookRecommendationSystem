@@ -59,6 +59,7 @@ def group2(books, bt):
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:]
     df = pd.read_csv("Assets/Data.csv")
+    df = df.sample(frac=1)  # shuffles df
     books = df
     # books = get_df()
     book = []
@@ -69,7 +70,8 @@ def home(request):
             rand_num = list(range(len(books)))
             random.shuffle(rand_num)
             temp = rand_num.pop()
-            if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
+            if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(
+                    books.image_url[temp]):
                 flag = True
             tempo.append(books.id.values[temp])
         book_obj = OneBook()
@@ -84,9 +86,11 @@ def home(request):
         book.append(book_obj)
     return render(request, 'pages/index.html', {'books': book})
 
+
 # find out user choise and redirect to relevant page.
 def user_choise(request):
     df = pd.read_csv("Assets/Data.csv")
+    df = df.sample(frac=1)  # shuffles df
     books = df
     # books = get_df()
 
@@ -99,7 +103,8 @@ def user_choise(request):
                 rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
+                if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(
+                        books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()
@@ -120,7 +125,8 @@ def user_choise(request):
                 rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5  and books.id.values[temp] not in tempo and not "NOPHOTO" in str(books.image_url[temp]):
+                if books.rating.values[temp] == 5 and books.id.values[temp] not in tempo and not "NOPHOTO" in str(
+                        books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()
@@ -141,6 +147,7 @@ def user_choise(request):
 # our user_chose page view
 def result1(request):
     df = pd.read_csv("Assets/Data.csv")
+    df = df.sample(frac=1)  # shuffles df
     books = df
     # books = get_df()
 
@@ -181,6 +188,7 @@ def result1(request):
 
 def result2(request):
     df = pd.read_csv("Assets/Data.csv")
+    df = df.sample(frac=1)  # shuffles df
     books = df
 
     # books = get_df()
@@ -227,6 +235,7 @@ def search_result(request):
     else:
 
         df = pd.read_csv("Assets/Data.csv")
+        df = df.sample(frac=1)  # shuffles df
         # df = get_df()
         book = []
         counter = 1
@@ -248,4 +257,4 @@ def search_result(request):
                     break
                 counter += 1
 
-        return render(request, 'pages/search_result.html',{'books': book})
+        return render(request, 'pages/search_result.html', {'books': book})
