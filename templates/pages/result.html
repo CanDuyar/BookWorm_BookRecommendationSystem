@@ -156,8 +156,8 @@
               <div class="row">
                 {% if books %}
                   {% for book in books %}
-                    <div class="col-sm-2"></div>
-                    <div style="margin-bottom: 4rem;" class="col-sm-8" class="h5" class="text-center" class="list-group">
+                    <div class="col-sm-4"></div>
+                    <div style="margin-bottom: 4rem;" class="col-sm-4" class="h5" class="text-center" class="list-group">
                       <li class="list-group-item list-group-item-action">
                         <img src="{{ book.image_url }}" style="display:block;" width="100%" height="250rem"  alt="">
                       </li>
@@ -169,7 +169,7 @@
                       <a class="list-group-item list-group-item-action list-group-item-danger"><strong>Book Rating: </strong>{{book.rating}}</a>
                       <a class="list-group-item list-group-item-action list-group-item-secondary"><strong>Book ISBN: </strong> {{book.isbn}}</a>
                     </div>
-                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4"></div>
                   {% endfor %}
                 {% else %}
                     <h5>No Books To Display !!!</h5>
