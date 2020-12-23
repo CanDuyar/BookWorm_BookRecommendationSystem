@@ -4,8 +4,7 @@ import interface2_new
 
 books = pd.read_csv("../Assets/Data.csv")
 
-books = books.loc[:, ["title", "writer", "isbn",
-                      "page_num", "pub_year", "rating", "image_url", "genres"]]
+books = books.loc[:, ["title", "writer", "isbn", "page_num", "pub_year", "rating", "image_url", "genres"]]
 
 books = books.applymap(lambda s: s.upper() if type(s) == str else s)
 

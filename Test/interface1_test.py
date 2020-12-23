@@ -18,7 +18,7 @@ class test_interface1(unittest.TestCase):
         self.assertAlmostEqual(interface1_new.group(books, books_type), 1)
         books_type = ["HORROR", "HORROR", "HORROR", "HORROR", "HORROR"]
         self.assertAlmostEqual(interface1_new.group(books, books_type), 1)
-        books_type = ["SCIENCE", "SCIENCEFICTION", "TEXTBOOK", "TRAVEL", "HISTORY"]
+        books_type = ["SCIENCE", "SCIENCEFICTION", "ADVENTURE", "TRAVEL", "HISTORY"]
         self.assertAlmostEqual(interface1_new.group(books, books_type), 1)
         books_type = ["BIOGRAPHY", "PHILOSOPHY", "CLASSIC", "NONE", "HISTORY"]
         self.assertAlmostEqual(interface1_new.group(books, books_type), 1)

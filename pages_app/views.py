@@ -192,8 +192,7 @@ def result2(request):
     books = df
 
     # books = get_df()
-    books = books.loc[:, ["title", "writer", "isbn",
-                          "page_num", "pub_year", "rating", "image_url", "genres"]]
+    books = books.loc[:, ["title", "writer", "isbn","page_num", "pub_year", "rating", "image_url", "genres"]]
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
     if request.method == 'POST':
         selected_types = request.POST.getlist('ckb')
@@ -257,4 +256,4 @@ def search_result(request):
                     break
                 counter += 1
 
-        return render(request, 'pages/search_result.html', {'books': book})
+        return render(request, 'pages/search_result.html', {'books': book} )
