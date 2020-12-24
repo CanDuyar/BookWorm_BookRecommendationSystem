@@ -59,7 +59,7 @@ def group2(books, bt):
         book_list.append(book_obj)
     return book_list
 
-
+    print("test")
 # home page function renders index.html and returns response
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:] # read from postgres
