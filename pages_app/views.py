@@ -16,47 +16,81 @@ def shuffle_dataframe():
 def group(books, bt):
     index = 0
     book_list = []
-    for book_type in bt:
-        if book_type != "NONE":
-            gk = books.groupby('genres')
-            df4 = gk.get_group(book_type)
-            df5 = df4.groupby('rating')
-            max_rating = max(df5.rating)
-            df6 = df5.get_group(max_rating[0])
+    try:
+        for book_type in bt:
+            if book_type != "NONE":
+                gk = books.groupby('genres')
+                df4 = gk.get_group(book_type)
+                df5 = df4.groupby('rating')
+                max_rating = max(df5.rating)
+                df6 = df5.get_group(max_rating[0])
 
-            book_obj = OneBook()
-            book_obj.title = df6.title.values[index]
-            book_obj.writer = df6.writer.values[index]
-            book_obj.genres = df6.genres.values[index]
-            book_obj.page_num = df6.page_num.values[index]
-            book_obj.pub_year = df6.pub_year.values[index]
-            book_obj.rating = df6.rating.values[index]
-            book_obj.image_url = df6.image_url.values[index].lower()
-            book_obj.isbn = df6.isbn.values[index]
-            book_list.append(book_obj)
-            index += 1
+                book_obj = OneBook()
+                book_obj.title = df6.title.values[index]
+                book_obj.writer = df6.writer.values[index]
+                book_obj.genres = df6.genres.values[index]
+                book_obj.page_num = df6.page_num.values[index]
+                book_obj.pub_year = df6.pub_year.values[index]
+                book_obj.rating = df6.rating.values[index]
+                book_obj.image_url = df6.image_url.values[index].lower()
+                book_obj.isbn = df6.isbn.values[index]
+                book_list.append(book_obj)
+                index += 1
+    except IndexError:
+        print(" An Error")
 
     return book_list
 
 
 def group2(books, bt):
-    gk = books.groupby('genres')
-    df4 = gk.get_group(bt)
-    df5 = df4.groupby('rating')
-    max_rating = max(df5.rating)
-    df6 = df5.get_group(max_rating[0])
     book_list = []
-    for x in range(4):
-        book_obj = OneBook()
-        book_obj.title = df6.title.values[x]
-        book_obj.writer = df6.writer.values[x]
-        book_obj.genres = df6.genres.values[x]
-        book_obj.page_num = df6.page_num.values[x]
-        book_obj.pub_year = df6.pub_year.values[x]
-        book_obj.rating = df6.rating.values[x]
-        book_obj.image_url = df6.image_url.values[x].lower()
-        book_obj.isbn = df6.isbn.values[x]
-        book_list.append(book_obj)
+    try:
+        gk = books.groupby('genres')
+        df4 = gk.get_group(bt)
+        df5 = df4.groupby('rating')
+        max_rating = max(df5.rating)
+        df6 = df5.get_group(max_rating[0])
+        for x in range(4):
+            book_obj = OneBook()
+            book_obj.title = df6.title.values[x]
+            book_obj.writer = df6.writer.values[x]
+            book_obj.genres = df6.genres.values[x]
+            book_obj.page_num = df6.page_num.values[x]
+            book_obj.pub_year = df6.pub_year.values[x]
+            book_obj.rating = df6.rating.values[x]
+            book_obj.image_url = df6.image_url.values[x].lower()
+            book_obj.isbn = df6.isbn.values[x]
+            book_list.append(book_obj)
+    except IndexError:
+        # books = get_df()
+        df = shuffle_dataframe()  # shuffles df
+
+        my_books = df
+        book = []
+        tempo = []
+        for i in range(4):
+            flag = False
+            while not flag:
+                rand_num = list(range(len(my_books)))
+                random.shuffle(rand_num)
+                temp = rand_num.pop()
+                if my_books.rating.values[temp] == 4 and my_books.book_id.values[
+                    temp] not in tempo and not "NOPHOTO" in str(
+                        my_books.image_url[temp]):
+                    flag = True
+
+            book_obj = OneBook()
+            book_obj.title = my_books.title.values[temp]
+            book_obj.writer = my_books.writer.values[temp]
+            book_obj.genres = my_books.genres.values[temp]
+            book_obj.page_num = my_books.page_num.values[temp]
+            book_obj.pub_year = my_books.pub_year.values[temp]
+            book_obj.rating = my_books.rating.values[temp] + 1
+            book_obj.image_url = my_books.image_url.values[temp].lower()
+            book_obj.isbn = my_books.isbn.values[temp]
+            book.append(book_obj)
+            return book
+        print(" Index Error")
     return book_list
 
     print("test")
@@ -209,22 +243,17 @@ def result2(request):
 
     book_list = []
     temp = group2(books, bt)
-    book_list.append(temp[0])
-    book_list.append(temp[1])
-    book_list.append(temp[2])
-    book_list.append(temp[3])
+    for i in range(len(temp)):
+        book_list.append(temp[i])
 
     temp = group2(books, bt2)
-    book_list.append(temp[0])
-    book_list.append(temp[1])
-    book_list.append(temp[2])
-    book_list.append(temp[3])
+    for i in range(len(temp)):
+        book_list.append(temp[i])
 
     temp = group2(books, bt3)
-    book_list.append(temp[0])
-    book_list.append(temp[1])
-    book_list.append(temp[2])
-    book_list.append(temp[3])
+    for i in range(len(temp)):
+        book_list.append(temp[i])
+
     return render(request, 'pages/result.html', {'books': book_list})
 
 
