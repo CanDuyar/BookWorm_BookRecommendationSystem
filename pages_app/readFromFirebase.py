@@ -1,5 +1,5 @@
 import pandas as pd
-from firebase import firebase
+from Assets.firebase import firebase
 from pages_app.models import OneBook
 
 
