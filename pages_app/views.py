@@ -37,8 +37,34 @@ def group(books, bt):
                 book_list.append(book_obj)
                 index += 1
     except IndexError:
-        print(" An Error")
+        # books = get_df()
+        df = shuffle_dataframe()  # shuffles df
 
+        my_books = df
+        book = []
+        tempo = []
+        for i in range(4):
+            flag = False
+            while not flag:
+                rand_num = list(range(len(my_books)))
+                random.shuffle(rand_num)
+                temp = rand_num.pop()
+                if my_books.rating.values[temp] == 4 and my_books.book_id.values[
+                    temp] not in tempo and not "NOPHOTO" in str(
+                    my_books.image_url[temp]):
+                    flag = True
+
+            book_obj = OneBook()
+            book_obj.title = my_books.title.values[temp]
+            book_obj.writer = my_books.writer.values[temp]
+            book_obj.genres = my_books.genres.values[temp]
+            book_obj.page_num = my_books.page_num.values[temp]
+            book_obj.pub_year = my_books.pub_year.values[temp]
+            book_obj.rating = my_books.rating.values[temp] + 1
+            book_obj.image_url = my_books.image_url.values[temp].lower()
+            book_obj.isbn = my_books.isbn.values[temp]
+            book.append(book_obj)
+            return book
     return book_list
 
 
@@ -90,11 +116,8 @@ def group2(books, bt):
             book_obj.isbn = my_books.isbn.values[temp]
             book.append(book_obj)
             return book
-        print(" Index Error")
     return book_list
 
-    print("test")
-    print("RER")
 # home page function renders index.html and returns response
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:] # read from postgres
