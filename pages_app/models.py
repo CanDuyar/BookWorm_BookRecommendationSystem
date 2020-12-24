@@ -16,12 +16,20 @@ class BookClass(models.Model):
         return self.title
 
 
-class OneBook:
-    title: str
-    author: str
-    genres: str
-    page_num: int
-    pub_year: int
-    rating: int
-    image_url: str
-    isbn: int
+class OneBook(object):
+    def __init__(self, book_id=0, title='', writer='', genres='', page_num='',pub_year='',rating='',image_url='',isbn=''):
+        self.book_id = book_id
+        self.title = title
+        self.writer = writer
+        self.genres = genres
+        self.page_num = page_num
+        self.pub_year = pub_year
+        self.rating = rating
+        self.image_url = image_url
+        self.isbn = isbn
+
+    def as_dict(self):
+        return {'book_id': self.book_id,'title': self.title, 'writer': self.writer,
+                'genres': self.genres, 'page_num': self.page_num, 'pub_year': self.pub_year
+                , 'rating': self.rating, 'image_url': self.image_url, 'isbn': self.isbn
+                }
