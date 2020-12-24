@@ -5,11 +5,12 @@ import pandas as pd
 from pages_app.models import OneBook
 from pages_app.readFromFirebase import read_from_firebase
 
-df = pd.read_csv("Assets/Data.csv")  # read from csv
+# d_frame = pd.read_csv("Assets/Data.csv")  # read from csv
+d_frame = read_from_firebase()  # read from firebase API
 
 
 def shuffle_dataframe():
-    return df.sample(frac=1)  # shuffles df
+    return d_frame.sample(frac=1)  # shuffles df
 
 
 def group(books, bt):
@@ -63,10 +64,8 @@ def group2(books, bt):
 def home(request):
     # books = BookClass.objects.all().order_by('-id')[:] # read from postgres
     # books = get_df()
-    # df = pd.read_csv("Assets/Data.csv") # read from csv file
-    # df = read_from_firebase()  # read from firebase API
+    df = shuffle_dataframe()
 
-    df.sample(frac=1)  # shuffles df
     books = df
     book = []
     tempo = []
@@ -76,7 +75,7 @@ def home(request):
             rand_num = list(range(len(books)))
             random.shuffle(rand_num)
             temp = rand_num.pop()
-            if books.rating.values[temp] == 5 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
+            if books.rating.values[temp] == 4 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
                     books.image_url[temp]):
                 flag = True
             tempo.append(books.book_id.values[temp])
@@ -86,7 +85,7 @@ def home(request):
         book_obj.genres = books.genres.values[temp]
         book_obj.page_num = books.page_num.values[temp]
         book_obj.pub_year = books.pub_year.values[temp]
-        book_obj.rating = books.rating.values[temp]
+        book_obj.rating = books.rating.values[temp]+1
         book_obj.image_url = books.image_url.values[temp].lower()
         book_obj.isbn = books.isbn.values[temp]
         book.append(book_obj)
@@ -96,10 +95,9 @@ def home(request):
 # find out user choice and redirect to relevant page.
 def user_choice(request):
     # books = get_df()
-    # df = read_from_firebase()  # read from firebase API
+    df = shuffle_dataframe()  # shuffles df
 
-    d_frame = shuffle_dataframe()  # shuffles df
-    books = d_frame
+    books = df
     book = []
     tempo = []
     if 'yes_enter' in request.POST:
@@ -109,7 +107,7 @@ def user_choice(request):
                 rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
+                if books.rating.values[temp] == 4 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
                         books.image_url[temp]):
                     flag = True
 
@@ -119,7 +117,7 @@ def user_choice(request):
             book_obj.genres = books.genres.values[temp]
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
-            book_obj.rating = books.rating.values[temp]
+            book_obj.rating = books.rating.values[temp]+1
             book_obj.image_url = books.image_url.values[temp].lower()
             book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
@@ -131,7 +129,7 @@ def user_choice(request):
                 rand_num = list(range(len(books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if books.rating.values[temp] == 5 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
+                if books.rating.values[temp] == 4 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
                         books.image_url[temp]):
                     flag = True
 
@@ -141,7 +139,7 @@ def user_choice(request):
             book_obj.genres = books.genres.values[temp]
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
-            book_obj.rating = books.rating.values[temp]
+            book_obj.rating = books.rating.values[temp]+1
             book_obj.image_url = books.image_url.values[temp].lower()
             book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
@@ -153,10 +151,9 @@ def user_choice(request):
 # our user_chose page view
 def result1(request):
     # books = get_df()
-    # df = read_from_firebase()  # read from firebase API
+    df = shuffle_dataframe()  # shuffles df
 
-    d_frame = shuffle_dataframe()  # shuffles df
-    books = d_frame
+    books = df
 
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
@@ -195,11 +192,9 @@ def result1(request):
 
 def result2(request):
     # books = get_df()
-    # df = read_from_firebase()  # read from firebase API
+    df = shuffle_dataframe()  # shuffles df
 
-    d_frame = shuffle_dataframe()  # shuffles df
     books = d_frame
-
     books = books.loc[:, ["title", "writer", "isbn", "page_num", "pub_year", "rating", "image_url", "genres"]]
     books = books.applymap(lambda s: s.upper() if type(s) == str else s)
     if request.method == 'POST':
@@ -241,24 +236,23 @@ def search_result(request):
         return render(request, 'pages/search_error.html')
     else:
         # df = get_df()
-        # df = read_from_firebase()  # read from firebase API
+        df = shuffle_dataframe()  # shuffles df
 
-        d_frame = shuffle_dataframe()  # shuffles df
         book = []
         counter = 1
-        for i in range(len(d_frame)):
-            if d_frame.genres.values[i] == bt:
+        for i in range(len(df)):
+            if df.genres.values[i] == bt:
                 book_obj = OneBook()
-                book_obj.title = d_frame.title.values[i]
-                book_obj.writer = d_frame.writer.values[i]
-                book_obj.genres = d_frame.genres.values[i]
+                book_obj.title = df.title.values[i]
+                book_obj.writer = df.writer.values[i]
+                book_obj.genres = df.genres.values[i]
                 if book_obj.genres == "TEXTBOOK":
                     book_obj.genres = "ADVENTURE"
-                book_obj.page_num = d_frame.page_num.values[i]
-                book_obj.pub_year = d_frame.pub_year.values[i]
-                book_obj.rating = d_frame.rating.values[i]
-                book_obj.image_url = d_frame.image_url.values[i].lower()
-                book_obj.isbn = d_frame.isbn.values[i]
+                book_obj.page_num = df.page_num.values[i]
+                book_obj.pub_year = df.pub_year.values[i]
+                book_obj.rating = df.rating.values[i]
+                book_obj.image_url = df.image_url.values[i].lower()
+                book_obj.isbn = df.isbn.values[i]
                 book.append(book_obj)
                 if counter == 20:
                     break
