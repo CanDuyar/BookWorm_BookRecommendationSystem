@@ -1,5 +1,7 @@
 .github
 /Data
+/Book_Worm_Virtual_Environment
+/pages_app/pythondo.py
 db.sqlite3
 distribute_setup.py
 setup.py

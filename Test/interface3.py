@@ -1,9 +1,17 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Sat Dec 26 22:26:06 2020
+
+@author: JIN_HUSSEIN
+"""
+
 import pandas as pd
-import numpy as np
-import random
 
 
 def group(books, bt):
+    if (bt == "NONE"):
+        print("Error: Choose At least One Type Of Book 🙂\n")
+        return -1;
     gk = books.groupby('genres')
     df4 = gk.get_group(bt)
 
@@ -13,7 +21,7 @@ def group(books, bt):
 
     df6 = df5.get_group(max_rating[0])
 
-    for x in range(4):
+    for x in range(20):
         print(df6.title.values[x])
         print(df6.writer.values[x])
         print(df6.genres.values[x])
@@ -40,5 +48,3 @@ bt2 = "HISTORY"
 bt3 = "YOUNGADULT"
 
 group(books, bt)
-group(books, bt2)
-group(books, bt3)

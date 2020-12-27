@@ -102,7 +102,7 @@ def group2(books, bt):
                 temp = rand_num.pop()
                 if my_books.rating.values[temp] == 4 and my_books.book_id.values[
                     temp] not in tempo and not "NOPHOTO" in str(
-                        my_books.image_url[temp]):
+                    my_books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()
@@ -117,6 +117,7 @@ def group2(books, bt):
             book.append(book_obj)
             return book
     return book_list
+
 
 # home page function renders index.html and returns response
 def home(request):
@@ -143,7 +144,7 @@ def home(request):
         book_obj.genres = books.genres.values[temp]
         book_obj.page_num = books.page_num.values[temp]
         book_obj.pub_year = books.pub_year.values[temp]
-        book_obj.rating = books.rating.values[temp]+1
+        book_obj.rating = books.rating.values[temp] + 1
         book_obj.image_url = books.image_url.values[temp].lower()
         book_obj.isbn = books.isbn.values[temp]
         book.append(book_obj)
@@ -175,7 +176,7 @@ def user_choice(request):
             book_obj.genres = books.genres.values[temp]
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
-            book_obj.rating = books.rating.values[temp]+1
+            book_obj.rating = books.rating.values[temp] + 1
             book_obj.image_url = books.image_url.values[temp].lower()
             book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
@@ -197,7 +198,7 @@ def user_choice(request):
             book_obj.genres = books.genres.values[temp]
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
-            book_obj.rating = books.rating.values[temp]+1
+            book_obj.rating = books.rating.values[temp] + 1
             book_obj.image_url = books.image_url.values[temp].lower()
             book_obj.isbn = books.isbn.values[temp]
             book.append(book_obj)
