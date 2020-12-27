@@ -304,7 +304,7 @@ def search_result(request):
                     book_obj.genres = "ADVENTURE"
                 book_obj.page_num = df.page_num.values[i]
                 book_obj.pub_year = df.pub_year.values[i]
-                book_obj.rating = df.rating.values[i]
+                book_obj.rating = 5
                 book_obj.image_url = df.image_url.values[i].lower()
                 book_obj.isbn = df.isbn.values[i]
                 book.append(book_obj)
