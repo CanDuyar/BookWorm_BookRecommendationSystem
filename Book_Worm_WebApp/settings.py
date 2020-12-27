@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pages_app.apps.PagesAppConfig',
-    'django_extensions',
     'import_export',
 ]
 
