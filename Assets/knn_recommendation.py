@@ -16,7 +16,7 @@ for i in df.columns:
 df.to_csv("data.csv")
 '''
 
-#print(df.Genres)
+# print(df.Genres)
 
 '''
 labelenc = LabelEncoder()
@@ -24,23 +24,22 @@ df.Genres = labelenc.fit_transform(df.Genres)
 df.to_csv("data.csv")
 '''
 
-df_pivot = df.pivot(index = "index", columns = "Genres", values = "rating").fillna(0)
+df_pivot = df.pivot(index="index", columns="Genres", values="rating").fillna(0)
 
-#print(df.head())
+# print(df.head())
 matrix = csr_matrix(df_pivot.values)
 
 knn = joblib.load('knn.h5')
 
-#knn = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
+# knn = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
 knn.fit(matrix)
 joblib.dump(knn, 'knn.h5')
 
-
 query_index = np.random.choice(df_pivot.shape[0])
-distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors = 6)
+distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
 
 for i in range(0, len(distances.flatten())):
-	if i == 0:
-		print('Recommendations for {}:\n'.format(df.title[df.title.index[query_index]]))
-	else:
-			print('{}: {}'.format(i, df.title[df.title.index[indices.flatten()[i]]]))
+    if i == 0:
+        print('Recommendations for {}:\n'.format(df.title[df.title.index[query_index]]))
+    else:
+        print('{}: {}'.format(i, df.title[df.title.index[indices.flatten()[i]]]))

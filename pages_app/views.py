@@ -1,10 +1,13 @@
-from random import random
 import random
+from random import random
+import  random
+import joblib
+import numpy as np
 from django.shortcuts import render
+from scipy.sparse import csr_matrix
 import pandas as pd
 from pages_app.models import OneBook
 from pages_app.readFromFirebase import read_from_firebase
-
 # d_frame = pd.read_csv("Assets/Data.csv")  # read from csv
 d_frame = read_from_firebase()  # read from firebase API
 
@@ -39,7 +42,6 @@ def group(books, bt):
     except IndexError:
         # books = get_df()
         df = shuffle_dataframe()  # shuffles df
-
         my_books = df
         book = []
         tempo = []
@@ -210,42 +212,62 @@ def user_choice(request):
 # our user_chose page view
 def result1(request):
     # books = get_df()
-    df = shuffle_dataframe()  # shuffles df
+    # df = shuffle_dataframe()  # shuffles df
+    #
+    # books = df
+    #
+    # if 'book1_type' in request.POST:
+    #     bt = request.POST['book1_type'].upper()
+    # else:
+    #     bt = ""
+    # if 'book1_type' in request.POST:
+    #     bt2 = request.POST['book2_type'].upper()
+    # else:
+    #     bt2 = ""
+    # if 'book3_type' in request.POST:
+    #     bt3 = request.POST['book3_type'].upper()
+    # else:
+    #     bt3 = ""
+    # if 'book4_type' in request.POST:
+    #     bt4 = request.POST['book4_type'].upper()
+    # else:
+    #     bt4 = ""
+    # if 'book5_type' in request.POST:
+    #     bt5 = request.POST['book5_type'].upper()
+    # else:
+    #     bt5 = ""
+    # books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
+    # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+    # book_types = []
+    #
+    # if bt == "NONE" and bt2 == "NONE" and bt3 == "NONE" and bt4 == "NONE" and bt5 == "NONE":
+    #     return render(request, 'pages/NameError.html')
+    # book_types.append(bt)
+    # book_types.append(bt2)
+    # book_types.append(bt3)
+    # book_types.append(bt4)
+    # book_types.append(bt5)
+    # book = group(books, book_types)
 
-    books = df
+    df_pivot = d_frame.pivot(index="book_id", columns="genres", values="rating").fillna(0)
 
-    if 'book1_type' in request.POST:
-        bt = request.POST['book1_type'].upper()
-    else:
-        bt = ""
-    if 'book1_type' in request.POST:
-        bt2 = request.POST['book2_type'].upper()
-    else:
-        bt2 = ""
-    if 'book3_type' in request.POST:
-        bt3 = request.POST['book3_type'].upper()
-    else:
-        bt3 = ""
-    if 'book4_type' in request.POST:
-        bt4 = request.POST['book4_type'].upper()
-    else:
-        bt4 = ""
-    if 'book5_type' in request.POST:
-        bt5 = request.POST['book5_type'].upper()
-    else:
-        bt5 = ""
-    books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
-    books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-    book_types = []
+    matrix = csr_matrix(df_pivot.values)
 
-    if bt == "NONE" and bt2 == "NONE" and bt3 == "NONE" and bt4 == "NONE" and bt5 == "NONE":
-        return render(request, 'pages/NameError.html')
-    book_types.append(bt)
-    book_types.append(bt2)
-    book_types.append(bt3)
-    book_types.append(bt4)
-    book_types.append(bt5)
-    book = group(books, book_types)
+    knn = joblib.load('Assets/knn.h5')
+
+    # knn = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
+    knn.fit(matrix)
+
+    query_index = np.random.choice(df_pivot.shape[0])
+    distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
+    book = []
+    for i in range(0, len(distances.flatten())):
+        if i == 0:
+            print('Recommendations for {}:\n'.format(d_frame.title[d_frame.title.index[query_index]]))
+        else:
+            print('{}: {}'.format(i, d_frame.title[d_frame.title.index[indices.flatten()[i]]]))
+            book.append(d_frame.title[d_frame.title.index[indices.flatten()[i]]])
+
     return render(request, 'pages/result.html', {'books': book})
 
 
