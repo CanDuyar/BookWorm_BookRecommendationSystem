@@ -4,15 +4,40 @@ from scipy.sparse import csr_matrix
 from sklearn.neighbors import NearestNeighbors
 import joblib
 from sklearn.preprocessing import LabelEncoder
+from pages_app.models import OneBook
 
-df = pd.read_csv("new_data.csv")
+
+def convert_genres(gen):
+    if gen == 18:
+        return "SCIENCE FICTION"
+    elif gen == 0:
+        return "CLASSIC"
+    elif gen == 1:
+        return "PHILOSOPHY"
+    elif gen == 9:
+        return "BIOGRAPHY"
+    elif gen == 3:
+        return "YOUNG ADULT"
+    elif gen == 5:
+        return "TRAVEL"
+    elif gen == 6:
+        return "CRIME"
+    elif gen == 24:
+        return "SCIENCE"
+    elif gen == 4:
+        return "HORROR"
+    elif gen == 21:
+        return "HISTORY"
+    elif gen == 12:
+        return "ADVENTURE"
+
 
 '''
 # Dataframedeki virgulleri silme kodu
 for i in df.columns:
-	for j in range(0,len(df.index)):
-		if(isinstance(df[i][j],str) == 1):
-			df[i][j] = df[i][j].replace(',', '')
+    for j in range(0,len(df.index)):
+        if(isinstance(df[i][j],str) == 1):
+            df[i][j] = df[i][j].replace(',', '')
 df.to_csv("data.csv")
 '''
 
@@ -23,37 +48,28 @@ df.to_csv("lEncodeddata.csv")
 '''
 
 
-df_pivot = df.pivot(index = "book_id", columns = "genres", values = "rating").fillna(0)
+def inter_1(df, book_type):
+    # df = pd.read_csv("Assets/bookworm_data.csv")  # read from csv
+    df = pd.concat([df[:1], df[1:].sample(frac=1)]).reset_index(drop=True)
+    found = False
+    print(df.genres.unique())
+    df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
+    matrix = csr_matrix(df_pivot.values)
+    knn = joblib.load('Assets/knn.h5')
+    book_obj = OneBook()
+    knn.fit(matrix)
+    genre = book_type  # BURAYA KULLANICININ GIRDIGI KITAP TURU (GENRE) GELECEK (INTEGER OLARAK)
+    lst = df.index[df['genres'] == genre].tolist()
+    query_index = np.random.choice(lst)
 
-#print(df.head())
-matrix = csr_matrix(df_pivot.values)
-
-knn = joblib.load('knn.h5')
-
-knn.fit(matrix)
-
-
-#  sf 18
-#  classic 0
-#  philosophy 1
-#  bio 9
-#  yngadlt 3
-#  travel 5
-#  crime 6
-#  science 24
-#  horror 4
-#  history 21
-#  adventure 12
-genre = 12   # BURAYA KULLANICININ GIRDIGI KITAP TURU (GENRE) GELECEK (INTEGER OLARAK)
-query_index = genre
-filter1 = df.genres == genre
-ids = df.book_id.where(filter1)
-for i in ids:
-	if type(i) == float and pd.isna(i):
-		pass
-	else:
-		query_index = int(i)
-
-distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors = 6)
-i = 0
-print('{}-{}'.format(df.title[df.title.index[indices.flatten()[i]]] ,df.genres[df.title.index[indices.flatten()[i]]]))
+    distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
+    i = 0
+    book_obj.title = df.title[df.title.index[indices.flatten()[i]]]
+    book_obj.writer = df.writer[df.title.index[indices.flatten()[i]]]
+    book_obj.page_num = df.page_num[df.title.index[indices.flatten()[i]]]
+    book_obj.pub_year = df.pub_year[df.title.index[indices.flatten()[i]]]
+    book_obj.rating = df.rating[df.title.index[indices.flatten()[i]]]
+    book_obj.isbn = df.isbn[df.title.index[indices.flatten()[i]]]
+    book_obj.image_url = df.image_url[df.title.index[indices.flatten()[i]]].lower()
+    book_obj.genres = convert_genres(df.genres[df.title.index[indices.flatten()[i]]])
+    return book_obj

@@ -18,7 +18,7 @@ def read_from_firebase():
     book_list = []
 
     i = 1
-    while i in range(671):
+    while i in range(672):
         book_obj = OneBook()
         book_obj.book_id = i
         book_obj.title = result1[i]["TITLE"]
@@ -47,7 +47,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 1347
+    i = 1343
     for x in result3.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -62,7 +62,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 2019
+    i = 2016
     for x in result4.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -77,7 +77,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 2690
+    i = 2687
     for x in result5.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -92,7 +92,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 3362
+    i = 3360
     for x in result6.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -107,7 +107,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 4035
+    i = 4033
     for x in result7.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -122,7 +122,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 4707
+    i = 4705
     for x in result8.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -137,7 +137,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 5155
+    i = 5378
     for x in result9.items():
         book_obj = OneBook()
         book_obj.book_id = i
@@ -152,7 +152,7 @@ def read_from_firebase():
         book_list.append(book_obj)
         i += 1
 
-    i = 5826
+    i = 6051
     for x in result10.items():
         book_obj = OneBook()
         book_obj.book_id = i
