@@ -3,11 +3,11 @@ from random import random
 import random
 from django.shortcuts import render
 import pandas as pd
+
+from Assets import knn_logic
 from pages_app.models import OneBook
 from pages_app.readFromFirebase import read_from_firebase
-import Assets.knn_interface_1 as logic_interface_1
 import pages_app.convert_gen as convert_gen
-
 # d_frame = pd.read_csv("Assets/yeah_bro.csv",sep=';')  # read from csv
 d_frame = read_from_firebase()  # read from firebase API
 
@@ -121,10 +121,7 @@ def group2(books, bt):
 
 # home page function renders index.html and returns response
 def home(request):
-    # books = BookClass.objects.all().order_by('-id')[:] # read from postgres
-    # books = get_df()
     df = shuffle_dataframe()
-
     books = df
     book = []
     tempo = []
@@ -153,9 +150,7 @@ def home(request):
 
 # find out user choice and redirect to relevant page.
 def user_choice(request):
-    # books = get_df()
     df = shuffle_dataframe()  # shuffles df
-
     books = df
     book = []
     tempo = []
@@ -169,7 +164,6 @@ def user_choice(request):
                 if books.rating.values[temp] == 4 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
                         books.image_url[temp]):
                     flag = True
-
             book_obj = OneBook()
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
@@ -191,7 +185,6 @@ def user_choice(request):
                 if books.rating.values[temp] == 4 and books.book_id.values[temp] not in tempo and not "NOPHOTO" in str(
                         books.image_url[temp]):
                     flag = True
-
             book_obj = OneBook()
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
@@ -209,8 +202,6 @@ def user_choice(request):
 
 # our user_chose page view
 def result1(request):
-    # df = d_frame.sample(frac=1)  # shuffles df
-    # df = shuffle_dataframe()
     df = d_frame
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
@@ -251,15 +242,12 @@ def result1(request):
             temp_book_types_list.append(book_types_list[i])
     type_int_list = convert_gen.convert_genres(temp_book_types_list)
     for i in range(len(type_int_list)):
-        book.append(logic_interface_1.inter_1(df, type_int_list[i]))
+        book.append(knn_logic.ml_logic(df, type_int_list[i]))
     return render(request, 'pages/result.html', {'books': book})
 
 
 def result2(request):
-    # books = get_df()
-    # df = shuffle_dataframe()  # shuffles df
     df = d_frame
-
     # books = df
     # books = books.loc[:, ["title", "writer", "isbn", "page_num", "pub_year", "rating", "image_url", "genres"]]
     # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
@@ -287,18 +275,18 @@ def result2(request):
 
     temp_book_types_list = [bt, bt2, bt3]
     type_int_list = convert_gen.convert_genres(temp_book_types_list)
-    book_list = [logic_interface_1.inter_1(df, type_int_list[0]),
-                 logic_interface_1.inter_1(df, type_int_list[0]),
-                 logic_interface_1.inter_1(df, type_int_list[0]),
-                 logic_interface_1.inter_1(df, type_int_list[0]),
-                 logic_interface_1.inter_1(df, type_int_list[1]),
-                 logic_interface_1.inter_1(df, type_int_list[1]),
-                 logic_interface_1.inter_1(df, type_int_list[1]),
-                 logic_interface_1.inter_1(df, type_int_list[1]),
-                 logic_interface_1.inter_1(df, type_int_list[2]),
-                 logic_interface_1.inter_1(df, type_int_list[2]),
-                 logic_interface_1.inter_1(df, type_int_list[2]),
-                 logic_interface_1.inter_1(df, type_int_list[2])]
+    book_list = [knn_logic.ml_logic(df, type_int_list[0]),
+                 knn_logic.ml_logic(df, type_int_list[0]),
+                 knn_logic.ml_logic(df, type_int_list[0]),
+                 knn_logic.ml_logic(df, type_int_list[0]),
+                 knn_logic.ml_logic(df, type_int_list[1]),
+                 knn_logic.ml_logic(df, type_int_list[1]),
+                 knn_logic.ml_logic(df, type_int_list[1]),
+                 knn_logic.ml_logic(df, type_int_list[1]),
+                 knn_logic.ml_logic(df, type_int_list[2]),
+                 knn_logic.ml_logic(df, type_int_list[2]),
+                 knn_logic.ml_logic(df, type_int_list[2]),
+                 knn_logic.ml_logic(df, type_int_list[2])]
 
     return render(request, 'pages/result.html', {'books': book_list})
 
@@ -311,7 +299,6 @@ def search_result(request):
     if bt == "":
         return render(request, 'pages/search_error.html')
     else:
-        # df = get_df()
         df = shuffle_dataframe()  # shuffles df
         temp_bt = [bt]
         temp_bt = convert_gen.convert_genres(temp_bt)
@@ -332,5 +319,4 @@ def search_result(request):
                 if counter == 20:
                     break
                 counter += 1
-
         return render(request, 'pages/search_result.html', {'books': book})

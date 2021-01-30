@@ -1,9 +1,6 @@
 import pandas as pd
-import numpy as np
 from scipy.sparse import csr_matrix
-from sklearn.neighbors import NearestNeighbors
 import joblib
-from sklearn.preprocessing import LabelEncoder
 from pages_app.models import OneBook
 import random
 
@@ -49,8 +46,7 @@ df.to_csv("lEncodeddata.csv")
 '''
 
 
-def inter_1(df, book_type):
-    # df = pd.read_csv("Assets/bookworm_data.csv")  # read from csv
+def ml_logic(df, book_type):
     rate = 5
     df = pd.concat([df[:1], df[1:].sample(frac=1)]).reset_index(drop=True)
     df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
