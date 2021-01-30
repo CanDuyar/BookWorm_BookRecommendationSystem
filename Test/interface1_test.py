@@ -1,9 +1,10 @@
 import unittest
 import pandas as pd
 import interface1_new
-
-books = pd.read_csv("DataSet.csv")
-
+# from pages_app.readFromFirebase import read_from_firebase
+# d_frame = read_from_firebase()  # read from firebase API
+# books = d_frame
+books = pd.read_csv("../Assets/Data.csv")
 books = books.loc[:, ["title", "writer", "genres",
                       "page_num", "pub_year", "rating", "isbn", "image_url"]]
 

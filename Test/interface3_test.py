@@ -9,7 +9,7 @@ import unittest
 import pandas as pd
 import Test.interface3 as interface3
 
-books = pd.read_csv("DataSet.csv")
+books = pd.read_csv("../Assets/Data.csv")
 
 books = books.loc[:, ["title", "writer", "genres",
                       "page_num", "pub_year", "rating", "isbn", "image_url"]]

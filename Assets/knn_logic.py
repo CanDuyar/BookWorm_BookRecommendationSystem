@@ -55,7 +55,7 @@ def ml_logic(df, book_type):
     knn.fit(matrix)
     genre = book_type
     lst = df.index[(df['genres'] == genre) & (df['rating'] == 4)].tolist()
-    ind = random.randint(0, len(lst)-1)
+    ind = random.randint(0, len(lst) - 1)
     query_index = lst[int(ind)]
     n_neighbors = 21
     distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1),
@@ -72,4 +72,3 @@ def ml_logic(df, book_type):
     book_obj.genres = convert_genres(df.genres[df.title.index[query_index]])
 
     return book_obj
-
