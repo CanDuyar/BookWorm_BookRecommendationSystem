@@ -5,30 +5,31 @@ from sklearn.neighbors import NearestNeighbors
 import joblib
 from sklearn.preprocessing import LabelEncoder
 from pages_app.models import OneBook
+import random
 
 
 def convert_genres(gen):
-    if gen == 18:
+    if gen == 0:
         return "SCIENCE FICTION"
-    elif gen == 0:
-        return "CLASSIC"
     elif gen == 1:
+        return "CLASSIC"
+    elif gen == 2:
         return "PHILOSOPHY"
-    elif gen == 9:
-        return "BIOGRAPHY"
     elif gen == 3:
+        return "BIOGRAPHY"
+    elif gen == 4:
         return "YOUNG ADULT"
     elif gen == 5:
         return "TRAVEL"
     elif gen == 6:
         return "CRIME"
-    elif gen == 24:
+    elif gen == 7:
         return "SCIENCE"
-    elif gen == 4:
+    elif gen == 8:
         return "HORROR"
-    elif gen == 21:
+    elif gen == 9:
         return "HISTORY"
-    elif gen == 12:
+    elif gen == 10:
         return "ADVENTURE"
 
 
@@ -51,7 +52,6 @@ df.to_csv("lEncodeddata.csv")
 def inter_1(df, book_type):
     # df = pd.read_csv("Assets/bookworm_data.csv")  # read from csv
     df = pd.concat([df[:1], df[1:].sample(frac=1)]).reset_index(drop=True)
-    found = False
     print(df.genres.unique())
     df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
     matrix = csr_matrix(df_pivot.values)
@@ -63,7 +63,7 @@ def inter_1(df, book_type):
     query_index = np.random.choice(lst)
 
     distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
-    i = 0
+    i = random.randint(0, 6)
     book_obj.title = df.title[df.title.index[indices.flatten()[i]]]
     book_obj.writer = df.writer[df.title.index[indices.flatten()[i]]]
     book_obj.page_num = df.page_num[df.title.index[indices.flatten()[i]]]

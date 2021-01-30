@@ -7,8 +7,9 @@ from pages_app.models import OneBook
 from pages_app.readFromFirebase import read_from_firebase
 import Assets.knn_interface_1 as logic_interface_1
 import pages_app.convert_gen as convert_gen
-d_frame = pd.read_csv("Assets/bookworm_data.csv")  # read from csv
-# d_frame = read_from_firebase()  # read from firebase API
+
+# d_frame = pd.read_csv("Assets/yeah_bro.csv",sep=';')  # read from csv
+d_frame = read_from_firebase()  # read from firebase API
 
 
 def shuffle_dataframe():
@@ -50,7 +51,7 @@ def group(books, bt):
                 rand_num = list(range(len(my_books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if my_books.rating.values[temp] == 4 and my_books.book_id.values[temp]\
+                if my_books.rating.values[temp] == 4 and my_books.book_id.values[temp] \
                         not in tempo and not "NOPHOTO" in str(my_books.image_url[temp]):
                     flag = True
 
@@ -100,9 +101,8 @@ def group2(books, bt):
                 rand_num = list(range(len(my_books)))
                 random.shuffle(rand_num)
                 temp = rand_num.pop()
-                if my_books.rating.values[temp] == 4 and my_books.book_id.values[
-                    temp] not in tempo and not "NOPHOTO" in str(
-                    my_books.image_url[temp]):
+                if my_books.rating.values[temp] == 4 and my_books.book_id.values[temp] \
+                        not in tempo and not "NOPHOTO" in str(my_books.image_url[temp]):
                     flag = True
 
             book_obj = OneBook()
@@ -210,8 +210,8 @@ def user_choice(request):
 # our user_chose page view
 def result1(request):
     # df = d_frame.sample(frac=1)  # shuffles df
-    df = shuffle_dataframe()
-    books = df
+    # df = shuffle_dataframe()
+    df = d_frame
     if 'book1_type' in request.POST:
         bt = request.POST['book1_type'].upper()
     else:
@@ -236,31 +236,33 @@ def result1(request):
         return render(request, 'pages/NameError.html')
 
     # *********************************************************
-    books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
-    books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-    book_types = [bt, bt2, bt3, bt4, bt5]
-    book = group(books, book_types)
+    # books = df
+    # books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
+    # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+    # book_types = [bt, bt2, bt3, bt4, bt5]
+    # book = group(books, book_types)
     # *********************************************************
 
-    # book = []
-    # book_types_list = [bt, bt2, bt3, bt4, bt5]
-    # temp_book_types_list = []
-    # for i in range(len(book_types_list)):
-    #     if book_types_list[i] != "NONE":
-    #         temp_book_types_list.append(book_types_list[i])
-    # type_int_list = convert_gen.convert_genres(temp_book_types_list)
-    # for i in range(len(type_int_list)):
-    #     book.append(logic_interface_1.inter_1(df, type_int_list[i]))
+    book = []
+    book_types_list = [bt, bt2, bt3, bt4, bt5]
+    temp_book_types_list = []
+    for i in range(len(book_types_list)):
+        if book_types_list[i] != "NONE":
+            temp_book_types_list.append(book_types_list[i])
+    type_int_list = convert_gen.convert_genres(temp_book_types_list)
+    for i in range(len(type_int_list)):
+        book.append(logic_interface_1.inter_1(df, type_int_list[i]))
     return render(request, 'pages/result.html', {'books': book})
 
 
 def result2(request):
     # books = get_df()
-    df = shuffle_dataframe()  # shuffles df
+    # df = shuffle_dataframe()  # shuffles df
+    df = d_frame
 
-    books = d_frame
-    books = books.loc[:, ["title", "writer", "isbn", "page_num", "pub_year", "rating", "image_url", "genres"]]
-    books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+    # books = df
+    # books = books.loc[:, ["title", "writer", "isbn", "page_num", "pub_year", "rating", "image_url", "genres"]]
+    # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
     if request.method == 'POST':
         selected_types = request.POST.getlist('ckb')
     if len(selected_types) < 3:
@@ -270,18 +272,33 @@ def result2(request):
         bt2 = selected_types[1].upper()
         bt3 = selected_types[2].upper()
 
-    book_list = []
-    temp = group2(books, bt)
-    for i in range(len(temp)):
-        book_list.append(temp[i])
+    # book_list = []
+    # temp = group2(books, bt)
+    # for i in range(len(temp)):
+    #     book_list.append(temp[i])
+    #
+    # temp = group2(books, bt2)
+    # for i in range(len(temp)):
+    #     book_list.append(temp[i])
+    #
+    # temp = group2(books, bt3)
+    # for i in range(len(temp)):
+    #     book_list.append(temp[i])
 
-    temp = group2(books, bt2)
-    for i in range(len(temp)):
-        book_list.append(temp[i])
-
-    temp = group2(books, bt3)
-    for i in range(len(temp)):
-        book_list.append(temp[i])
+    temp_book_types_list = [bt, bt2, bt3]
+    type_int_list = convert_gen.convert_genres(temp_book_types_list)
+    book_list = [logic_interface_1.inter_1(df, type_int_list[0]),
+                 logic_interface_1.inter_1(df, type_int_list[0]),
+                 logic_interface_1.inter_1(df, type_int_list[0]),
+                 logic_interface_1.inter_1(df, type_int_list[0]),
+                 logic_interface_1.inter_1(df, type_int_list[1]),
+                 logic_interface_1.inter_1(df, type_int_list[1]),
+                 logic_interface_1.inter_1(df, type_int_list[1]),
+                 logic_interface_1.inter_1(df, type_int_list[1]),
+                 logic_interface_1.inter_1(df, type_int_list[2]),
+                 logic_interface_1.inter_1(df, type_int_list[2]),
+                 logic_interface_1.inter_1(df, type_int_list[2]),
+                 logic_interface_1.inter_1(df, type_int_list[2])]
 
     return render(request, 'pages/result.html', {'books': book_list})
 

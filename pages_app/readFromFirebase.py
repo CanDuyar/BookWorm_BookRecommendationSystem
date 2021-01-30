@@ -17,10 +17,21 @@ def read_from_firebase():
     result10 = f.get('/Part10', None)
     book_list = []
 
-    i = 1
-    while i in range(672):
+    # 0
+    # 673
+    # 1344
+    # 2017
+    # 2688
+    # 3361
+    # 4034
+    # 4706
+    # 5379
+    # 6052
+
+    for i in range(1, 673):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result1[i]["ID"]
+        print(book_obj.book_id)
         book_obj.title = result1[i]["TITLE"]
         book_obj.writer = result1[i]["WRITER"]
         book_obj.genres = result1[i]["GENRES"]
@@ -30,12 +41,13 @@ def read_from_firebase():
         book_obj.image_url = result1[i]["IMAGEURL"]
         book_obj.isbn = result1[i]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 673
-    while i in range(1347):
+    for i in range(673, 1344):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result2[i]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result2[i]["TITLE"]
         book_obj.writer = result2[i]["WRITER"]
         book_obj.genres = result2[i]["GENRES"]
@@ -45,12 +57,13 @@ def read_from_firebase():
         book_obj.image_url = result2[i]["IMAGEURL"]
         book_obj.isbn = result2[i]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 1343
-    for x in result3.items():
+    for i in range(1344, 2016):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result3[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result3[str(i)]["TITLE"]
         book_obj.writer = result3[str(i)]["WRITER"]
         book_obj.genres = result3[str(i)]["GENRES"]
@@ -60,12 +73,13 @@ def read_from_firebase():
         book_obj.image_url = result3[str(i)]["IMAGEURL"]
         book_obj.isbn = result3[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 2016
-    for x in result4.items():
+    for i in range(2017, 2688):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result4[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result4[str(i)]["TITLE"]
         book_obj.writer = result4[str(i)]["WRITER"]
         book_obj.genres = result4[str(i)]["GENRES"]
@@ -75,12 +89,13 @@ def read_from_firebase():
         book_obj.image_url = result4[str(i)]["IMAGEURL"]
         book_obj.isbn = result4[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 2687
-    for x in result5.items():
+    for i in range(2688, 3360):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result5[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result5[str(i)]["TITLE"]
         book_obj.writer = result5[str(i)]["WRITER"]
         book_obj.genres = result5[str(i)]["GENRES"]
@@ -90,12 +105,13 @@ def read_from_firebase():
         book_obj.image_url = result5[str(i)]["IMAGEURL"]
         book_obj.isbn = result5[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 3360
-    for x in result6.items():
+    for i in range(3361, 4034):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result6[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result6[str(i)]["TITLE"]
         book_obj.writer = result6[str(i)]["WRITER"]
         book_obj.genres = result6[str(i)]["GENRES"]
@@ -105,12 +121,13 @@ def read_from_firebase():
         book_obj.image_url = result6[str(i)]["IMAGEURL"]
         book_obj.isbn = result6[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 4033
-    for x in result7.items():
+    for i in range(4034, 4706):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result7[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result7[str(i)]["TITLE"]
         book_obj.writer = result7[str(i)]["WRITER"]
         book_obj.genres = result7[str(i)]["GENRES"]
@@ -120,12 +137,13 @@ def read_from_firebase():
         book_obj.image_url = result7[str(i)]["IMAGEURL"]
         book_obj.isbn = result7[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 4705
-    for x in result8.items():
+    for i in range(4706, 5378):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result8[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result8[str(i)]["TITLE"]
         book_obj.writer = result8[str(i)]["WRITER"]
         book_obj.genres = result8[str(i)]["GENRES"]
@@ -135,12 +153,13 @@ def read_from_firebase():
         book_obj.image_url = result8[str(i)]["IMAGEURL"]
         book_obj.isbn = result8[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 5378
-    for x in result9.items():
+    for i in range(5379, 6049):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result9[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result9[str(i)]["TITLE"]
         book_obj.writer = result9[str(i)]["WRITER"]
         book_obj.genres = result9[str(i)]["GENRES"]
@@ -150,12 +169,13 @@ def read_from_firebase():
         book_obj.image_url = result9[str(i)]["IMAGEURL"]
         book_obj.isbn = result9[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
-    i = 6051
-    for x in result10.items():
+    for i in range(6052, 6565):
         book_obj = OneBook()
-        book_obj.book_id = i
+        book_obj.book_id = result10[str(i)]["ID"]
+        print(book_obj.book_id)
+
         book_obj.title = result10[str(i)]["TITLE"]
         book_obj.writer = result10[str(i)]["WRITER"]
         book_obj.genres = result10[str(i)]["GENRES"]
@@ -165,8 +185,8 @@ def read_from_firebase():
         book_obj.image_url = result10[str(i)]["IMAGEURL"]
         book_obj.isbn = result10[str(i)]["ISBN"]
         book_list.append(book_obj)
-        i += 1
+    print("***********************")
 
     df = pd.DataFrame([x.as_dict() for x in book_list])
-    df = df.sample(frac=1)
+    # df = df.sample(frac=1)
     return df
