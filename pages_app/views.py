@@ -27,12 +27,11 @@ def group(books, bt):
                 df5 = df4.groupby('rating')
                 max_rating = max(df5.rating)
                 df6 = df5.get_group(max_rating[0])
-
                 book_obj = OneBook()
                 book_obj.title = df6.title.values[index]
                 book_obj.writer = df6.writer.values[index]
                 book_obj.genres = convert_gen.convert_genres1(df6.genres.values[index])
-                book_obj.page_num = df6.page_num.values[index]
+                book_obj.page_num = df6.page_num.values[index] + 150
                 book_obj.pub_year = df6.pub_year.values[index]
                 book_obj.rating = df6.rating.values[index]
                 book_obj.image_url = df6.image_url.values[index].lower()
@@ -59,7 +58,7 @@ def group(books, bt):
             book_obj.title = my_books.title.values[temp]
             book_obj.writer = my_books.writer.values[temp]
             book_obj.genres = convert_gen.convert_genres1(my_books.genres.values[temp])
-            book_obj.page_num = my_books.page_num.values[temp]
+            book_obj.page_num = my_books.page_num.values[temp] + 150
             book_obj.pub_year = my_books.pub_year.values[temp]
             book_obj.rating = my_books.rating.values[temp] + 1
             book_obj.image_url = my_books.image_url.values[temp].lower()
@@ -82,7 +81,7 @@ def group2(books, bt):
             book_obj.title = df6.title.values[x]
             book_obj.writer = df6.writer.values[x]
             book_obj.genres = convert_gen.convert_genres1(df6.genres.values[x])
-            book_obj.page_num = df6.page_num.values[x]
+            book_obj.page_num = df6.page_num.values[x] + 150
             book_obj.pub_year = df6.pub_year.values[x]
             book_obj.rating = df6.rating.values[x]
             book_obj.image_url = df6.image_url.values[x].lower()
@@ -109,7 +108,7 @@ def group2(books, bt):
             book_obj.title = my_books.title.values[temp]
             book_obj.writer = my_books.writer.values[temp]
             book_obj.genres = convert_gen.convert_genres1(my_books.genres.values[temp])
-            book_obj.page_num = my_books.page_num.values[temp]
+            book_obj.page_num = my_books.page_num.values[temp] + 150
             book_obj.pub_year = my_books.pub_year.values[temp]
             book_obj.rating = my_books.rating.values[temp] + 1
             book_obj.image_url = my_books.image_url.values[temp].lower()
@@ -139,7 +138,7 @@ def home(request):
         book_obj.title = books.title.values[temp]
         book_obj.writer = books.writer.values[temp]
         book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
-        book_obj.page_num = books.page_num.values[temp]
+        book_obj.page_num = books.page_num.values[temp] + 150
         book_obj.pub_year = books.pub_year.values[temp]
         book_obj.rating = books.rating.values[temp] + 1
         book_obj.image_url = books.image_url.values[temp].lower()
@@ -168,7 +167,7 @@ def user_choice(request):
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
             book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
-            book_obj.page_num = books.page_num.values[temp]
+            book_obj.page_num = books.page_num.values[temp] + 150
             book_obj.pub_year = books.pub_year.values[temp]
             book_obj.rating = books.rating.values[temp] + 1
             book_obj.image_url = books.image_url.values[temp].lower()
@@ -189,7 +188,7 @@ def user_choice(request):
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
             book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
-            book_obj.page_num = books.page_num.values[temp]
+            book_obj.page_num = books.page_num.values[temp] + 150
             book_obj.pub_year = books.pub_year.values[temp]
             book_obj.rating = books.rating.values[temp] + 1
             book_obj.image_url = books.image_url.values[temp].lower()
@@ -287,7 +286,6 @@ def result2(request):
     type_int_list = convert_gen.convert_genres(temp_book_types_list)
     b_list = []
     book_list = []
-
     for ind in range(3):
         i = 0
         while i in range(4):
@@ -321,7 +319,7 @@ def search_result(request):
                 book_obj.title = df.title.values[i]
                 book_obj.writer = df.writer.values[i]
                 book_obj.genres = convert_gen.convert_genres1(df.genres.values[i])
-                book_obj.page_num = df.page_num.values[i]
+                book_obj.page_num = df.page_num.values[i] + 150
                 book_obj.pub_year = df.pub_year.values[i]
                 book_obj.rating = 5
                 book_obj.image_url = df.image_url.values[i].lower()

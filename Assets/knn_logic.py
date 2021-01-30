@@ -64,7 +64,7 @@ def ml_logic(df, book_type):
 
     book_obj.title = df.title[df.title.index[indices.flatten()[i]]]
     book_obj.writer = df.writer[df.title.index[indices.flatten()[i]]]
-    book_obj.page_num = df.page_num[df.title.index[indices.flatten()[i]]]
+    book_obj.page_num = df.page_num[df.title.index[indices.flatten()[i]]] + 150
     book_obj.pub_year = df.pub_year[df.title.index[indices.flatten()[i]]]
     book_obj.rating = rate
     book_obj.isbn = df.isbn[df.title.index[indices.flatten()[i]]]
