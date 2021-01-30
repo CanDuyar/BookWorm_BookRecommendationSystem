@@ -48,7 +48,6 @@ df.to_csv("lEncodeddata.csv")
 
 def ml_logic(df, book_type):
     rate = 5
-    df = pd.concat([df[:1], df[1:].sample(frac=1)]).reset_index(drop=True)
     df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
     matrix = csr_matrix(df_pivot.values)
     knn = joblib.load('Assets/knn.h5')
@@ -69,5 +68,7 @@ def ml_logic(df, book_type):
     book_obj.rating = rate
     book_obj.isbn = df.isbn[df.title.index[indices.flatten()[i]]]
     book_obj.image_url = df.image_url[df.title.index[indices.flatten()[i]]].lower()
-    book_obj.genres = convert_genres(book_type)
+    book_obj.genres = convert_genres(df.genres[df.title.index[query_index]])
+
     return book_obj
+
