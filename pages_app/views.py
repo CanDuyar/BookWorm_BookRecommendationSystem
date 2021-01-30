@@ -31,7 +31,7 @@ def group(books, bt):
                 book_obj = OneBook()
                 book_obj.title = df6.title.values[index]
                 book_obj.writer = df6.writer.values[index]
-                book_obj.genres = df6.genres.values[index]
+                book_obj.genres = convert_gen.convert_genres1(df6.genres.values[index])
                 book_obj.page_num = df6.page_num.values[index]
                 book_obj.pub_year = df6.pub_year.values[index]
                 book_obj.rating = df6.rating.values[index]
@@ -58,7 +58,7 @@ def group(books, bt):
             book_obj = OneBook()
             book_obj.title = my_books.title.values[temp]
             book_obj.writer = my_books.writer.values[temp]
-            book_obj.genres = my_books.genres.values[temp]
+            book_obj.genres = convert_gen.convert_genres1(my_books.genres.values[temp])
             book_obj.page_num = my_books.page_num.values[temp]
             book_obj.pub_year = my_books.pub_year.values[temp]
             book_obj.rating = my_books.rating.values[temp] + 1
@@ -81,7 +81,7 @@ def group2(books, bt):
             book_obj = OneBook()
             book_obj.title = df6.title.values[x]
             book_obj.writer = df6.writer.values[x]
-            book_obj.genres = df6.genres.values[x]
+            book_obj.genres = convert_gen.convert_genres1(df6.genres.values[x])
             book_obj.page_num = df6.page_num.values[x]
             book_obj.pub_year = df6.pub_year.values[x]
             book_obj.rating = df6.rating.values[x]
@@ -108,7 +108,7 @@ def group2(books, bt):
             book_obj = OneBook()
             book_obj.title = my_books.title.values[temp]
             book_obj.writer = my_books.writer.values[temp]
-            book_obj.genres = my_books.genres.values[temp]
+            book_obj.genres = convert_gen.convert_genres1(my_books.genres.values[temp])
             book_obj.page_num = my_books.page_num.values[temp]
             book_obj.pub_year = my_books.pub_year.values[temp]
             book_obj.rating = my_books.rating.values[temp] + 1
@@ -141,7 +141,7 @@ def home(request):
         book_obj = OneBook()
         book_obj.title = books.title.values[temp]
         book_obj.writer = books.writer.values[temp]
-        book_obj.genres = books.genres.values[temp]
+        book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
         book_obj.page_num = books.page_num.values[temp]
         book_obj.pub_year = books.pub_year.values[temp]
         book_obj.rating = books.rating.values[temp] + 1
@@ -173,7 +173,7 @@ def user_choice(request):
             book_obj = OneBook()
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
-            book_obj.genres = books.genres.values[temp]
+            book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
             book_obj.rating = books.rating.values[temp] + 1
@@ -195,7 +195,7 @@ def user_choice(request):
             book_obj = OneBook()
             book_obj.title = books.title.values[temp]
             book_obj.writer = books.writer.values[temp]
-            book_obj.genres = books.genres.values[temp]
+            book_obj.genres = convert_gen.convert_genres1(books.genres.values[temp])
             book_obj.page_num = books.page_num.values[temp]
             book_obj.pub_year = books.pub_year.values[temp]
             book_obj.rating = books.rating.values[temp] + 1
@@ -313,17 +313,16 @@ def search_result(request):
     else:
         # df = get_df()
         df = shuffle_dataframe()  # shuffles df
-
+        temp_bt = [bt]
+        temp_bt = convert_gen.convert_genres(temp_bt)
         book = []
         counter = 1
         for i in range(len(df)):
-            if df.genres.values[i] == bt:
+            if df.genres.values[i] == temp_bt[0]:
                 book_obj = OneBook()
                 book_obj.title = df.title.values[i]
                 book_obj.writer = df.writer.values[i]
-                book_obj.genres = df.genres.values[i]
-                if book_obj.genres == "TEXTBOOK":
-                    book_obj.genres = "ADVENTURE"
+                book_obj.genres = convert_gen.convert_genres1(df.genres.values[i])
                 book_obj.page_num = df.page_num.values[i]
                 book_obj.pub_year = df.pub_year.values[i]
                 book_obj.rating = 5

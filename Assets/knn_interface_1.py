@@ -51,25 +51,27 @@ df.to_csv("lEncodeddata.csv")
 
 def inter_1(df, book_type):
     # df = pd.read_csv("Assets/bookworm_data.csv")  # read from csv
+    rate = 5
     df = pd.concat([df[:1], df[1:].sample(frac=1)]).reset_index(drop=True)
-    print(df.genres.unique())
     df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
     matrix = csr_matrix(df_pivot.values)
     knn = joblib.load('Assets/knn.h5')
     book_obj = OneBook()
     knn.fit(matrix)
-    genre = book_type  # BURAYA KULLANICININ GIRDIGI KITAP TURU (GENRE) GELECEK (INTEGER OLARAK)
-    lst = df.index[df['genres'] == genre].tolist()
-    query_index = np.random.choice(lst)
+    genre = book_type
+    lst = df.index[(df['genres'] == genre) & (df['rating'] == 4)].tolist()
+    ind = random.randint(0, len(lst)-1)
+    query_index = lst[int(ind)]
 
     distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
-    i = random.randint(0, 6)
+    i = random.randint(0, 5)
+
     book_obj.title = df.title[df.title.index[indices.flatten()[i]]]
     book_obj.writer = df.writer[df.title.index[indices.flatten()[i]]]
     book_obj.page_num = df.page_num[df.title.index[indices.flatten()[i]]]
     book_obj.pub_year = df.pub_year[df.title.index[indices.flatten()[i]]]
-    book_obj.rating = df.rating[df.title.index[indices.flatten()[i]]]
+    book_obj.rating = rate
     book_obj.isbn = df.isbn[df.title.index[indices.flatten()[i]]]
     book_obj.image_url = df.image_url[df.title.index[indices.flatten()[i]]].lower()
-    book_obj.genres = convert_genres(df.genres[df.title.index[indices.flatten()[i]]])
+    book_obj.genres = convert_genres(book_type)
     return book_obj
