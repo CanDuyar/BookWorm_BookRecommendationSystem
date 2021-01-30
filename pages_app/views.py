@@ -226,23 +226,33 @@ def result1(request):
     if bt == "NONE" and bt2 == "NONE" and bt3 == "NONE" and bt4 == "NONE" and bt5 == "NONE":
         return render(request, 'pages/NameError.html')
 
-    # *********************************************************
-    # books = df
-    # books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
-    # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
-    # book_types = [bt, bt2, bt3, bt4, bt5]
-    # book = group(books, book_types)
-    # *********************************************************
+        # *********************************************************
+        # books = df
+        # books = books.loc[:, ["title", "writer", "genres", "page_num", "pub_year", "rating", "isbn", "image_url"]]
+        # books = books.applymap(lambda s: s.upper() if type(s) == str else s)
+        # book_types = [bt, bt2, bt3, bt4, bt5]
+        # book = group(books, book_types)
+        # *********************************************************
 
-    book = []
     book_types_list = [bt, bt2, bt3, bt4, bt5]
     temp_book_types_list = []
     for i in range(len(book_types_list)):
         if book_types_list[i] != "NONE":
             temp_book_types_list.append(book_types_list[i])
     type_int_list = convert_gen.convert_genres(temp_book_types_list)
-    for i in range(len(type_int_list)):
-        book.append(knn_logic.ml_logic(df, type_int_list[i]))
+
+    book = []
+    b_list = []
+    i = 0
+    while i in range(len(type_int_list)):
+        one_book = knn_logic.ml_logic(df, type_int_list[i])
+        if one_book.isbn not in b_list:
+            book.append(one_book)
+            b_list.append(one_book.isbn)
+        else:
+            if i != 0:
+                i -= 1
+        i += 1
     return render(request, 'pages/result.html', {'books': book})
 
 
@@ -275,19 +285,20 @@ def result2(request):
 
     temp_book_types_list = [bt, bt2, bt3]
     type_int_list = convert_gen.convert_genres(temp_book_types_list)
-    book_list = [knn_logic.ml_logic(df, type_int_list[0]),
-                 knn_logic.ml_logic(df, type_int_list[0]),
-                 knn_logic.ml_logic(df, type_int_list[0]),
-                 knn_logic.ml_logic(df, type_int_list[0]),
-                 knn_logic.ml_logic(df, type_int_list[1]),
-                 knn_logic.ml_logic(df, type_int_list[1]),
-                 knn_logic.ml_logic(df, type_int_list[1]),
-                 knn_logic.ml_logic(df, type_int_list[1]),
-                 knn_logic.ml_logic(df, type_int_list[2]),
-                 knn_logic.ml_logic(df, type_int_list[2]),
-                 knn_logic.ml_logic(df, type_int_list[2]),
-                 knn_logic.ml_logic(df, type_int_list[2])]
+    b_list = []
+    book_list = []
 
+    for ind in range(3):
+        i = 0
+        while i in range(4):
+            one_book = knn_logic.ml_logic(df, type_int_list[ind])
+            if one_book.isbn not in b_list:
+                book_list.append(one_book)
+                b_list.append(one_book.isbn)
+            else:
+                if i != 0:
+                    i -= 1
+            i += 1
     return render(request, 'pages/result.html', {'books': book_list})
 
 

@@ -57,9 +57,10 @@ def ml_logic(df, book_type):
     lst = df.index[(df['genres'] == genre) & (df['rating'] == 4)].tolist()
     ind = random.randint(0, len(lst)-1)
     query_index = lst[int(ind)]
-
-    distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1), n_neighbors=6)
-    i = random.randint(0, 5)
+    n_neighbors = 21
+    distances, indices = knn.kneighbors(df_pivot.iloc[query_index, :].values.reshape(1, -1),
+                                        n_neighbors=n_neighbors)
+    i = random.randint(0, n_neighbors - 1)
 
     book_obj.title = df.title[df.title.index[indices.flatten()[i]]]
     book_obj.writer = df.writer[df.title.index[indices.flatten()[i]]]
