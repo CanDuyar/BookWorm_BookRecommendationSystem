@@ -8,7 +8,7 @@
 
 ## download the whole repo to your local environment or initialize a git repo and add remote to this repo on cloud.
 
-# Installations and Confegurations
+# Installations and Configurations
 - you can use any Operating System you want but we used windows to develop this app from scratch as full stack application with machine learning functinality.
 
 - use pycharm and open this repo with pycharm
