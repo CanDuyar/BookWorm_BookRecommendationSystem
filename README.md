@@ -58,7 +58,7 @@ we are planning to expand this project to help people to decide better what book
 [Mohammad Ashraf Yawar](https://github.com/ashrafyawar)
 
 ### Data Science Engineer And Jira PDT Manager:
-[Canverk Arıcı](https://github.com/canberkarc)
+[Canberk Arıcı](https://github.com/canberkarc)
 
 ### Data Science Engineer And Meeting Organizer:
 [Can Duyar](https://github.com/ashrafyawar)
