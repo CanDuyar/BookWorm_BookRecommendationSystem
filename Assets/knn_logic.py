@@ -3,7 +3,7 @@ from scipy.sparse import csr_matrix
 import joblib
 from pages_app.models import OneBook
 import random
-
+from sklearn.neighbors import NearestNeighbors
 
 def convert_genres(gen):
     if gen == 0:
@@ -29,28 +29,11 @@ def convert_genres(gen):
     elif gen == 10:
         return "ADVENTURE"
 
-
-'''
-# Dataframedeki virgulleri silme kodu
-for i in df.columns:
-    for j in range(0,len(df.index)):
-        if(isinstance(df[i][j],str) == 1):
-            df[i][j] = df[i][j].replace(',', '')
-df.to_csv("data.csv")
-'''
-
-'''
-labelenc = LabelEncoder()
-df.genres = labelenc.fit_transform(df.genres)
-df.to_csv("lEncodeddata.csv")
-'''
-
-
 def ml_logic(df, book_type):
     rate = 5
     df_pivot = df.pivot(index="book_id", columns="genres", values="rating").fillna(0)
     matrix = csr_matrix(df_pivot.values)
-    knn = joblib.load('Assets/knn.h5')
+    knn = NearestNeighbors()
     book_obj = OneBook()
     knn.fit(matrix)
     genre = book_type
